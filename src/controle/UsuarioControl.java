@@ -10,17 +10,17 @@ public class UsuarioControl {
 	
 	public UsuarioControl() { this.tabelaUsuario = new ArrayList<>();}
 	
-	public boolean insert(Usuario p) {
+	public boolean insert(Usuario u) {
 
 		return false;
 	}
 	
-	public boolean alterar(Usuario p) {
+	public boolean alterar(Usuario u) {
 		
 		return false;
 	}
 	
-	public boolean deletar(Usuario p, int idUsuario) {
+	public boolean deletar(Usuario u, int idUsuario) {
 		return false;
 	}
 	
