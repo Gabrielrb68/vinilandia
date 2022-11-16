@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 public class TelaPadrão extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtPesquisa;
 
 	/**
 	 * Launch the application.
@@ -48,21 +48,21 @@ public class TelaPadrão extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBackground(new Color(250, 235, 215));
-		textField.setBounds(20, 11, 228, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtPesquisa = new JTextField();
+		txtPesquisa.setBackground(new Color(250, 235, 215));
+		txtPesquisa.setBounds(20, 11, 228, 20);
+		contentPane.add(txtPesquisa);
+		txtPesquisa.setColumns(10);
 		
-		JComboBox comboBoxFiltro = new JComboBox();
-		comboBoxFiltro.setBackground(new Color(128, 0, 128));
-		comboBoxFiltro.setBounds(364, 10, 60, 22);
-		contentPane.add(comboBoxFiltro);
+		JComboBox cbFiltro = new JComboBox();
+		cbFiltro.setBackground(new Color(128, 0, 128));
+		cbFiltro.setBounds(364, 10, 60, 22);
+		contentPane.add(cbFiltro);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBackground(new Color(250, 240, 230));
-		textArea.setBounds(10, 56, 251, 194);
-		contentPane.add(textArea);
+		JTextArea txtAreaDiscos = new JTextArea();
+		txtAreaDiscos.setBackground(new Color(250, 240, 230));
+		txtAreaDiscos.setBounds(10, 56, 251, 194);
+		contentPane.add(txtAreaDiscos);
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.addActionListener(new ActionListener() {
