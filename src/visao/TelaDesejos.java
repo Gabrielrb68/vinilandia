@@ -38,9 +38,11 @@ public class TelaDesejos extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaDesejos() {
+		setBackground(new Color(128, 128, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(147, 112, 219));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
