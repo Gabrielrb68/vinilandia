@@ -34,33 +34,45 @@ public class TelaCarrinhoCompras extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("SEU CARRINHO DE COMPRAS!");
+		lblNewLabel.setForeground(new Color(64, 0, 128));
 		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 24));
 		lblNewLabel.setBounds(10, 11, 404, 56);
 		contentPane.add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(41, 78, 241, 141);
+		scrollPane.setBounds(10, 78, 272, 141);
 		contentPane.add(scrollPane);
 		
 		JTextArea txtArea = new JTextArea();
-		scrollPane.setViewportView(txtArea);
+		txtArea.setBounds(10, 78, 272, 139);
+		contentPane.add(txtArea);
 		
 		JButton btnComprar = new JButton("PROSSEGUIR COM A COMPRA");
+		btnComprar.setForeground(new Color(255, 255, 255));
 		btnComprar.setFont(new Font("Arial Black", Font.PLAIN, 9));
-		btnComprar.setBackground(new Color(250, 240, 230));
+		btnComprar.setBackground(new Color(255, 160, 122));
 		btnComprar.setBounds(227, 230, 197, 23);
 		contentPane.add(btnComprar);
 		
 		JButton btnvoltar = new JButton("CONTINUAR NAVEGANDO");
+		btnvoltar.setForeground(new Color(255, 255, 255));
 		btnvoltar.setFont(new Font("Arial Black", Font.PLAIN, 9));
-		btnvoltar.setBackground(new Color(250, 240, 230));
+		btnvoltar.setBackground(new Color(255, 160, 122));
 		btnvoltar.setBounds(10, 230, 171, 23);
 		contentPane.add(btnvoltar);
 		
 		JButton btnRemover = new JButton("REMOVER ITEM");
+		btnRemover.setForeground(new Color(255, 255, 255));
 		btnRemover.setFont(new Font("Arial Black", Font.PLAIN, 9));
-		btnRemover.setBackground(new Color(250, 240, 230));
-		btnRemover.setBounds(302, 103, 122, 23);
+		btnRemover.setBackground(new Color(255, 160, 122));
+		btnRemover.setBounds(302, 78, 122, 23);
 		contentPane.add(btnRemover);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		btnVoltar.setForeground(new Color(255, 255, 255));
+		btnVoltar.setBackground(new Color(255, 160, 122));
+		btnVoltar.setBounds(317, 195, 89, 23);
+		contentPane.add(btnVoltar);
 	}
 }

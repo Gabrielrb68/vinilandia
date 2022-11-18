@@ -136,14 +136,14 @@ public class TelaRegistro extends JFrame {
 		btnRegistrar.setBackground(new Color(255, 160, 122));
 		btnRegistrar.setForeground(new Color(255, 255, 255));
 		btnRegistrar.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnRegistrar.setBounds(318, 143, 89, 23);
+		btnRegistrar.setBounds(304, 143, 103, 23);
 		contentPane.add(btnRegistrar);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnVoltar.setForeground(new Color(255, 255, 255));
 		btnVoltar.setBackground(new Color(255, 160, 122));
-		btnVoltar.setBounds(318, 174, 89, 23);
+		btnVoltar.setBounds(304, 174, 103, 23);
 		contentPane.add(btnVoltar);
 	}
 }
