@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TelaPadrão extends JFrame {
+public class TelaPadrao extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtPesquisa;
@@ -26,7 +26,7 @@ public class TelaPadrão extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaPadrão frame = new TelaPadrão();
+					TelaPadrao frame = new TelaPadrao();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class TelaPadrão extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaPadrão() {
+	public TelaPadrao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
