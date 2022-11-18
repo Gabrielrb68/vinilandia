@@ -60,6 +60,7 @@ public class TelaLogin extends JFrame {
 		txtSenha.setColumns(10);
 
 		JButton btnContinuar = new JButton("CONTINUAR");
+		btnContinuar.setBackground(new Color(255, 160, 122));
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// verificar o login
@@ -70,9 +71,16 @@ public class TelaLogin extends JFrame {
 				
 			}
 		});
-		btnContinuar.setForeground(new Color(64, 0, 128));
-		btnContinuar.setFont(new Font("OCR A Extended", Font.PLAIN, 15));
-		btnContinuar.setBounds(153, 185, 122, 40);
+		btnContinuar.setForeground(new Color(255, 255, 255));
+		btnContinuar.setFont(new Font("Arial Black", Font.PLAIN, 15));
+		btnContinuar.setBounds(151, 185, 156, 40);
 		contentPane.add(btnContinuar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(new Color(255, 160, 122));
+		btnVoltar.setForeground(new Color(255, 255, 255));
+		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		btnVoltar.setBounds(10, 227, 89, 23);
+		contentPane.add(btnVoltar);
 	}
 }

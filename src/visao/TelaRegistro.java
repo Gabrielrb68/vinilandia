@@ -29,7 +29,7 @@ public class TelaRegistro extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(128, 128, 255));
+		contentPane.setBackground(new Color(147, 112, 219));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -133,9 +133,17 @@ public class TelaRegistro extends JFrame {
 		contentPane.add(cbMes);
 
 		JButton btnRegistrar = new JButton("Registrar");
-		btnRegistrar.setForeground(new Color(64, 0, 128));
+		btnRegistrar.setBackground(new Color(255, 160, 122));
+		btnRegistrar.setForeground(new Color(255, 255, 255));
 		btnRegistrar.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnRegistrar.setBounds(318, 148, 89, 23);
+		btnRegistrar.setBounds(318, 143, 89, 23);
 		contentPane.add(btnRegistrar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		btnVoltar.setForeground(new Color(255, 255, 255));
+		btnVoltar.setBackground(new Color(255, 160, 122));
+		btnVoltar.setBounds(318, 174, 89, 23);
+		contentPane.add(btnVoltar);
 	}
 }

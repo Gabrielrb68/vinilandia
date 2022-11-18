@@ -65,6 +65,20 @@ public class TelaInicial extends JFrame {
 		lblNewLabel_2.setBounds(138, 180, 212, 36);
 		contentPane.add(lblNewLabel_2);
 
+		
+
+		JLabel lblNewLabel_3 = new JLabel("BEM VINDO DE VOLTA A MUSICA!");
+		lblNewLabel_3.setForeground(new Color(154, 53, 255));
+		lblNewLabel_3.setFont(new Font("Arial Black", Font.PLAIN, 20));
+		lblNewLabel_3.setBounds(20, 17, 509, 23);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("BEM VINDO DE VOLTA A MUSICA!");
+		lblNewLabel_3_1.setForeground(new Color(193, 132, 255));
+		lblNewLabel_3_1.setFont(new Font("Arial Black", Font.PLAIN, 18));
+		lblNewLabel_3_1.setBounds(49, 25, 509, 23);
+		contentPane.add(lblNewLabel_3_1);
+		
 		JButton btnCadastro = new JButton("CADASTRO");
 		btnCadastro.setBackground(new Color(255, 160, 122));
 		btnCadastro.setForeground(new Color(255, 255, 255));
@@ -94,11 +108,5 @@ public class TelaInicial extends JFrame {
 		});
 		btnLogin.setBounds(162, 227, 128, 23);
 		contentPane.add(btnLogin);
-
-		JLabel lblNewLabel_3 = new JLabel("BEM VINDO DE VOLTA A MUSICA!");
-		lblNewLabel_3.setForeground(new Color(154, 53, 255));
-		lblNewLabel_3.setFont(new Font("Arial Black", Font.PLAIN, 22));
-		lblNewLabel_3.setBounds(10, 24, 509, 23);
-		contentPane.add(lblNewLabel_3);
 	}
 }
