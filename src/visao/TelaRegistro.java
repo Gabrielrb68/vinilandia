@@ -15,13 +15,13 @@ import javax.swing.JComboBox;
 public class TelaRegistro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textEmail;
-	private JTextField textSenha;
-	private JTextField textNome;
-	private JTextField textCPF;
-	private JTextField textGen;
-	private JTextField textCEP;
-	private JTextField textAno;
+	private JTextField txtEmail;
+	private JTextField txtSenha;
+	private JTextField txtNome;
+	private JTextField txtCPF;
+	private JTextField txtGen;
+	private JTextField txtCEP;
+	private JTextField txtAno;
 
 	/**
 	 * Launch the application.
@@ -63,78 +63,78 @@ public class TelaRegistro extends JFrame {
 		txtEmail2.setBounds(35, 51, 46, 14);
 		contentPane.add(txtEmail2);
 		
-		JLabel txtSenha = new JLabel("Senha:");
-		txtSenha.setForeground(new Color(64, 0, 128));
-		txtSenha.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		txtSenha.setBounds(35, 76, 46, 14);
+		JLabel lblNewLabel2 = new JLabel("Senha:");
+		lblNewLabel2.setForeground(new Color(64, 0, 128));
+		lblNewLabel2.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		lblNewLabel2.setBounds(35, 76, 46, 14);
+		contentPane.add(lblNewLabel2);
+		
+		JLabel lblNewLabel3 = new JLabel("Nome:");
+		lblNewLabel3.setForeground(new Color(64, 0, 128));
+		lblNewLabel3.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		lblNewLabel3.setBounds(35, 102, 46, 14);
+		contentPane.add(lblNewLabel3);
+		
+		JLabel lblNewLabel4 = new JLabel("Aniversário:");
+		lblNewLabel4.setForeground(new Color(64, 0, 128));
+		lblNewLabel4.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		lblNewLabel4.setBounds(35, 202, 108, 14);
+		contentPane.add(lblNewLabel4);
+		
+		JLabel lblNewLabel5 = new JLabel("Gênero:");
+		lblNewLabel5.setForeground(new Color(64, 0, 128));
+		lblNewLabel5.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		lblNewLabel5.setBounds(35, 152, 46, 14);
+		contentPane.add(lblNewLabel5);
+		
+		JLabel lblNewLabel6 = new JLabel("CEP:");
+		lblNewLabel6.setForeground(new Color(64, 0, 128));
+		lblNewLabel6.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		lblNewLabel6.setBounds(35, 177, 46, 14);
+		contentPane.add(lblNewLabel6);
+		
+		JLabel lblNewLabel7 = new JLabel("CPF:");
+		lblNewLabel7.setForeground(new Color(64, 0, 128));
+		lblNewLabel7.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		lblNewLabel7.setBounds(35, 127, 46, 14);
+		contentPane.add(lblNewLabel7);
+		
+		txtEmail = new JTextField();
+		txtEmail.setBounds(140, 48, 86, 20);
+		contentPane.add(txtEmail);
+		txtEmail.setColumns(10);
+		
+		txtSenha = new JTextField();
+		txtSenha.setBounds(140, 73, 86, 20);
 		contentPane.add(txtSenha);
+		txtSenha.setColumns(10);
 		
-		JLabel txtNome = new JLabel("Nome:");
-		txtNome.setForeground(new Color(64, 0, 128));
-		txtNome.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		txtNome.setBounds(35, 102, 46, 14);
+		txtNome = new JTextField();
+		txtNome.setBounds(140, 99, 86, 20);
 		contentPane.add(txtNome);
+		txtNome.setColumns(10);
 		
-		JLabel txtData = new JLabel("Aniversário:");
-		txtData.setForeground(new Color(64, 0, 128));
-		txtData.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		txtData.setBounds(35, 202, 108, 14);
-		contentPane.add(txtData);
-		
-		JLabel txtGen = new JLabel("Gênero:");
-		txtGen.setForeground(new Color(64, 0, 128));
-		txtGen.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		txtGen.setBounds(35, 152, 46, 14);
-		contentPane.add(txtGen);
-		
-		JLabel txtCEP = new JLabel("CEP:");
-		txtCEP.setForeground(new Color(64, 0, 128));
-		txtCEP.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		txtCEP.setBounds(35, 177, 46, 14);
-		contentPane.add(txtCEP);
-		
-		JLabel txtCPF = new JLabel("CPF:");
-		txtCPF.setForeground(new Color(64, 0, 128));
-		txtCPF.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		txtCPF.setBounds(35, 127, 46, 14);
+		txtCPF = new JTextField();
+		txtCPF.setBounds(140, 124, 86, 20);
 		contentPane.add(txtCPF);
+		txtCPF.setColumns(10);
 		
-		textEmail = new JTextField();
-		textEmail.setBounds(140, 48, 86, 20);
-		contentPane.add(textEmail);
-		textEmail.setColumns(10);
+		txtGen = new JTextField();
+		txtGen.setBounds(140, 149, 86, 20);
+		contentPane.add(txtGen);
+		txtGen.setColumns(10);
 		
-		textSenha = new JTextField();
-		textSenha.setBounds(140, 73, 86, 20);
-		contentPane.add(textSenha);
-		textSenha.setColumns(10);
+		txtCEP = new JTextField();
+		txtCEP.setBounds(140, 174, 86, 20);
+		contentPane.add(txtCEP);
+		txtCEP.setColumns(10);
 		
-		textNome = new JTextField();
-		textNome.setBounds(140, 99, 86, 20);
-		contentPane.add(textNome);
-		textNome.setColumns(10);
-		
-		textCPF = new JTextField();
-		textCPF.setBounds(140, 124, 86, 20);
-		contentPane.add(textCPF);
-		textCPF.setColumns(10);
-		
-		textGen = new JTextField();
-		textGen.setBounds(140, 149, 86, 20);
-		contentPane.add(textGen);
-		textGen.setColumns(10);
-		
-		textCEP = new JTextField();
-		textCEP.setBounds(140, 174, 86, 20);
-		contentPane.add(textCEP);
-		textCEP.setColumns(10);
-		
-		textAno = new JTextField();
-		textAno.setForeground(new Color(64, 0, 128));
-		textAno.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		textAno.setBounds(270, 210, 55, 20);
-		contentPane.add(textAno);
-		textAno.setColumns(10);
+		txtAno = new JTextField();
+		txtAno.setForeground(new Color(64, 0, 128));
+		txtAno.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		txtAno.setBounds(270, 210, 55, 20);
+		contentPane.add(txtAno);
+		txtAno.setColumns(10);
 		
 		JComboBox cbDia = new JComboBox();
 		cbDia.setForeground(new Color(64, 0, 128));
