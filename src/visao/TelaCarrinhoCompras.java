@@ -12,7 +12,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 
-public class TelaCarrinhoCompras extends JFrame {
+public class TelaCarrinhoCompras extends JFrame { 
 
 	private JPanel contentPane;
 
