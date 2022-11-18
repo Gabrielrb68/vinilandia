@@ -104,13 +104,14 @@ public class TelaCompra extends JFrame {
 		contentPane.add(txtValidadeAno);
 		
 		JButton btnComprar = new JButton("COMPRAR!");
+		btnComprar.setForeground(new Color(255, 255, 255));
 		btnComprar.setFont(new Font("Arial Black", Font.BOLD, 20));
-		btnComprar.setBackground(new Color(64, 0, 64));
+		btnComprar.setBackground(new Color(255, 160, 122));
 		btnComprar.setBounds(26, 176, 163, 61);
 		contentPane.add(btnComprar);
 		
 		JButton btnCancelar = new JButton("cancelar");
-		btnCancelar.setForeground(new Color(148, 0, 211));
+		btnCancelar.setForeground(new Color(255, 255, 255));
 		btnCancelar.setBackground(new Color(147, 112, 219));
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 8));
 		btnCancelar.setBounds(354, 236, 70, 14);
