@@ -29,4 +29,13 @@ public class UsuarioControl {
 		return null;
 	}
 	
+	public Usuario efetuarLogin(String email, String senha) {
+		
+//		if() {
+			
+//		}
+		
+		return null;
+	}
+	
 }
