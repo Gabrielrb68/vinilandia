@@ -105,5 +105,13 @@ public class TelaDisco extends JFrame {
 		lblNewLabel_5.setBounds(57, 50, 85, 14);
 		contentPane.add(lblNewLabel_5);
 		
+		JButton btnCarrinho = new JButton("Adcionar ao carrinho");
+		btnCarrinho.setBounds(281, 228, 143, 23);
+		contentPane.add(btnCarrinho);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(281, 262, 143, 23);
+		contentPane.add(btnVoltar);
+		
 	}
 }
