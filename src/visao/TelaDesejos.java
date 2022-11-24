@@ -11,6 +11,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaDesejos extends JFrame {
 
@@ -56,6 +58,14 @@ public class TelaDesejos extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaPadrao telaPadrao = new TelaPadrao();
+				telaPadrao.setLocationRelativeTo(null);
+				telaPadrao.setVisible(true);
+			}
+		});
 		btnVoltar.setForeground(new Color(64, 0, 128));
 		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnVoltar.setBounds(335, 227, 89, 23);

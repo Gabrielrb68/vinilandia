@@ -51,12 +51,59 @@ public class TelaPadrao extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnPesquisar.setBounds(258, 10, 89, 23);
+		btnPesquisar.setBounds(258, 10, 96, 23);
 		contentPane.add(btnPesquisar);
 
 		JButton btnDeslogar = new JButton("Deslogar");
+		btnDeslogar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaInicial telaIncial = new TelaInicial();
+				telaIncial.setLocationRelativeTo(null);
+				telaIncial.setVisible(true);
+			}
+		});
 		btnDeslogar.setBackground(new Color(128, 0, 128));
-		btnDeslogar.setBounds(333, 208, 101, 53);
+		btnDeslogar.setBounds(282, 197, 131, 53);
 		contentPane.add(btnDeslogar);
+		
+		JButton btnCarrinho = new JButton("Carrinho");
+		btnCarrinho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaCarrinhoCompras telaCarrinho = new TelaCarrinhoCompras();
+				telaCarrinho.setLocationRelativeTo(null);
+				telaCarrinho.setVisible(true);
+			}
+		});
+		btnCarrinho.setBackground(new Color(128, 0, 128));
+		btnCarrinho.setBounds(282, 121, 131, 65);
+		contentPane.add(btnCarrinho);
+		
+		JButton btnDesejo = new JButton("Lista de desejos");
+		btnDesejo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaDesejos telaDesejos = new TelaDesejos();
+				telaDesejos.setLocationRelativeTo(null);
+				telaDesejos.setVisible(true);
+			}
+		});
+		btnDesejo.setBackground(new Color(128, 0, 128));
+		btnDesejo.setBounds(282, 57, 131, 53);
+		contentPane.add(btnDesejo);
+		
+		JButton btnNewButton = new JButton("testeTemp");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//enviar id do disco escolhido
+				dispose();
+				TelaDisco telaDisco = new TelaDisco();
+				telaDisco.setLocationRelativeTo(null);
+				telaDisco.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(30, 42, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 }

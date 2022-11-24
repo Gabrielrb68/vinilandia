@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCarrinhoCompras extends JFrame { 
 
@@ -48,6 +50,15 @@ public class TelaCarrinhoCompras extends JFrame {
 		contentPane.add(txtArea);
 		
 		JButton btnComprar = new JButton("PROSSEGUIR COM A COMPRA");
+		btnComprar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//enviarpreco
+				dispose();
+				TelaCompra telaCompra = new TelaCompra();
+				telaCompra.setLocationRelativeTo(null);
+				telaCompra.setVisible(true);
+			}
+		});
 		btnComprar.setForeground(new Color(255, 255, 255));
 		btnComprar.setFont(new Font("Arial Black", Font.PLAIN, 9));
 		btnComprar.setBackground(new Color(255, 160, 122));
@@ -55,6 +66,14 @@ public class TelaCarrinhoCompras extends JFrame {
 		contentPane.add(btnComprar);
 		
 		JButton btnvoltar = new JButton("CONTINUAR NAVEGANDO");
+		btnvoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaPadrao telaPadrao = new TelaPadrao();
+				telaPadrao.setLocationRelativeTo(null);
+				telaPadrao.setVisible(true);
+			}
+		});
 		btnvoltar.setForeground(new Color(255, 255, 255));
 		btnvoltar.setFont(new Font("Arial Black", Font.PLAIN, 9));
 		btnvoltar.setBackground(new Color(255, 160, 122));
@@ -67,12 +86,5 @@ public class TelaCarrinhoCompras extends JFrame {
 		btnRemover.setBackground(new Color(255, 160, 122));
 		btnRemover.setBounds(302, 78, 122, 23);
 		contentPane.add(btnRemover);
-		
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnVoltar.setForeground(new Color(255, 255, 255));
-		btnVoltar.setBackground(new Color(255, 160, 122));
-		btnVoltar.setBounds(317, 195, 89, 23);
-		contentPane.add(btnVoltar);
 	}
 }

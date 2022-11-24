@@ -77,6 +77,14 @@ public class TelaLogin extends JFrame {
 		contentPane.add(btnContinuar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaInicial telaIncial = new TelaInicial();
+				telaIncial.setLocationRelativeTo(null);
+				telaIncial.setVisible(true);
+			}
+		});
 		btnVoltar.setBackground(new Color(255, 160, 122));
 		btnVoltar.setForeground(new Color(255, 255, 255));
 		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));

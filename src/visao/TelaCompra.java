@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaCompra extends JFrame {
 
@@ -94,6 +96,14 @@ public class TelaCompra extends JFrame {
 		contentPane.add(btnComprar);
 
 		JButton btnCancelar = new JButton("cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaPadrao telaPadrao = new TelaPadrao();
+				telaPadrao.setLocationRelativeTo(null);
+				telaPadrao.setVisible(true);
+			}
+		});
 		btnCancelar.setForeground(new Color(255, 255, 255));
 		btnCancelar.setBackground(new Color(147, 112, 219));
 		btnCancelar.setFont(new Font("Tahoma", Font.PLAIN, 8));

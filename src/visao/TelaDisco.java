@@ -106,10 +106,27 @@ public class TelaDisco extends JFrame {
 		contentPane.add(lblNewLabel_5);
 		
 		JButton btnCarrinho = new JButton("Adcionar ao carrinho");
+		btnCarrinho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//adcionar disco ao carrinho
+				dispose();
+				TelaCarrinhoCompras telaCompra = new TelaCarrinhoCompras();
+				telaCompra.setLocationRelativeTo(null);
+				telaCompra.setVisible(true);
+			}
+		});
 		btnCarrinho.setBounds(281, 228, 143, 23);
 		contentPane.add(btnCarrinho);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaPadrao telaPadrao = new TelaPadrao();
+				telaPadrao.setLocationRelativeTo(null);
+				telaPadrao.setVisible(true);
+			}
+		});
 		btnVoltar.setBounds(281, 262, 143, 23);
 		contentPane.add(btnVoltar);
 		

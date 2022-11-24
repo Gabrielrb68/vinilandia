@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaRegistro extends JFrame {
 
@@ -133,6 +135,15 @@ public class TelaRegistro extends JFrame {
 		contentPane.add(cbMes);
 
 		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//registrar
+				dispose();
+				TelaPadrao telaPadrao = new TelaPadrao();
+				telaPadrao.setLocationRelativeTo(null);
+				telaPadrao.setVisible(true);
+			}
+		});
 		btnRegistrar.setBackground(new Color(255, 160, 122));
 		btnRegistrar.setForeground(new Color(255, 255, 255));
 		btnRegistrar.setFont(new Font("Arial Black", Font.PLAIN, 11));
@@ -140,6 +151,14 @@ public class TelaRegistro extends JFrame {
 		contentPane.add(btnRegistrar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaInicial telaIncial = new TelaInicial();
+				telaIncial.setLocationRelativeTo(null);
+				telaIncial.setVisible(true);
+			}
+		});
 		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnVoltar.setForeground(new Color(255, 255, 255));
 		btnVoltar.setBackground(new Color(255, 160, 122));
