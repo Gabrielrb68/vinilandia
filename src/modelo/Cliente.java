@@ -2,7 +2,7 @@ package modelo;
 
 import java.time.LocalDate;
 
-public class Usuario {
+public class Cliente {
 	
 	public String nome;
 	public Long cpf;

@@ -7,9 +7,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controle.ClienteControl;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -23,6 +27,7 @@ public class TelaRegistro extends JFrame {
 	private JTextField txtGen;
 	private JTextField txtCEP;
 	private JTextField txtAno;
+	ClienteControl usuarioControl = new ClienteControl();
 
 	/**
 	 * Create the frame.
@@ -137,6 +142,9 @@ public class TelaRegistro extends JFrame {
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String email = txtEmail.getText();
+				String nome = txtNome.getText();
+				String senha = txtSenha.getText();
 				//registrar
 				dispose();
 				TelaPadrao telaPadrao = new TelaPadrao();
