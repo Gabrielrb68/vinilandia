@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -89,6 +90,12 @@ public class TelaCompra extends JFrame {
 		contentPane.add(txtValidadeAno);
 
 		JButton btnComprar = new JButton("COMPRAR!");
+		btnComprar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//verificar cartao
+				JOptionPane.showMessageDialog(btnComprar, "Pedido a caminho, agradecemos sua compra");
+			}
+		});
 		btnComprar.setForeground(new Color(255, 255, 255));
 		btnComprar.setFont(new Font("Arial Black", Font.BOLD, 20));
 		btnComprar.setBackground(new Color(255, 160, 122));
