@@ -11,6 +11,7 @@ public class Cliente {
 	private String telefone;
 	private LocalDate datNascimento;
 	private String genero;
+	private Long cep;
 
 	public String getNome() {
 		return nome;
@@ -67,5 +68,15 @@ public class Cliente {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+	
+	public Long getCep() {
+		
+		return cep;
+	}
+	
+	public void setCep(Long cep) {
+		this.cep = cep;
+	}
 
 }
+
