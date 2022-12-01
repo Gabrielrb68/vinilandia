@@ -67,19 +67,6 @@ public class TelaPadrao extends JFrame {
 		btnDeslogar.setBounds(282, 197, 131, 53);
 		contentPane.add(btnDeslogar);
 		
-		JButton btnCarrinho = new JButton("Carrinho");
-		btnCarrinho.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				TelaCarrinhoCompras telaCarrinho = new TelaCarrinhoCompras();
-				telaCarrinho.setLocationRelativeTo(null);
-				telaCarrinho.setVisible(true);
-			}
-		});
-		btnCarrinho.setBackground(new Color(128, 0, 128));
-		btnCarrinho.setBounds(282, 121, 131, 65);
-		contentPane.add(btnCarrinho);
-		
 		JButton btnDesejo = new JButton("Lista de desejos");
 		btnDesejo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
