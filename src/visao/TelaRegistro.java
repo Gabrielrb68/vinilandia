@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controle.ClienteControl;
+import modelo.Cliente;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,7 +28,7 @@ public class TelaRegistro extends JFrame {
 	private JTextField txtGen;
 	private JTextField txtCEP;
 	private JTextField txtAno;
-	ClienteControl usuarioControl = new ClienteControl();
+	private ClienteControl usuarioControl;
 
 	/**
 	 * Create the frame.
@@ -142,14 +143,37 @@ public class TelaRegistro extends JFrame {
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// Pega todos os dados do campo de texto
 				String email = txtEmail.getText();
 				String nome = txtNome.getText();
 				String senha = txtSenha.getText();
-				//registrar
-				dispose();
-				TelaPadrao telaPadrao = new TelaPadrao();
-				telaPadrao.setLocationRelativeTo(null);
-				telaPadrao.setVisible(true);
+
+				// Instancia um obj cliente
+				Cliente c = new Cliente();
+
+				// faz todos os sets no obj
+				c.setNome(nome);
+				c.setEmail(email);
+				c.setSenha(senha);
+
+				// registra o cliente
+				ClienteControl clienteControl = ClienteControl.getInstancia();
+				boolean valida = clienteControl.insert(c);
+				if (valida == true) {
+					// cadastrou com sucesso
+					// exibir msg
+					
+					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+
+					dispose();
+					TelaLogin telaLogin = new TelaLogin();
+					telaLogin.setLocationRelativeTo(null);
+					telaLogin.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Erro ao cadastrar!");
+				}
+
 			}
 		});
 		btnRegistrar.setBackground(new Color(255, 160, 122));
@@ -157,7 +181,7 @@ public class TelaRegistro extends JFrame {
 		btnRegistrar.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnRegistrar.setBounds(304, 143, 103, 23);
 		contentPane.add(btnRegistrar);
-		
+
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -2,17 +2,39 @@ package controle;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 import modelo.Cliente;
-import visao.TelaRegistro;
 
 public class ClienteControl {
 
-	private ArrayList<Cliente> tabelaCliente;
+	/**
+	 * ArrayList simula um banco de dados
+	 */
+	private static ArrayList<Cliente> tabelaCliente;
+	private static ClienteControl instancia;
 
-	public ClienteControl() {
-		this.tabelaCliente = new ArrayList<>();
+	/**
+	 * Padrao singleton viabiliza manipular um unico objeto na memoria
+	 * 
+	 * 
+	 * Apenas este metodo deve ser utilizado
+	 * @return
+	 */
+	public static ClienteControl getInstancia() {
+
+		if (instancia == null) {
+			instancia = new ClienteControl();
+			tabelaCliente = new ArrayList<>();
+		}
+
+		return instancia;
+	}
+
+	/**
+	 * Construtor da classe privado
+	 * impedindo que seja instanciada
+	 */
+	private ClienteControl() {
+
 	}
 
 	public boolean insert(Cliente c) {
@@ -56,15 +78,15 @@ public class ClienteControl {
 		return null;
 	}
 
-	public Cliente efetuarRegistro(Cliente c, TelaRegistro email, TelaRegistro nome, TelaRegistro senha) {
-		for (int i = 0; i < tabelaCliente.size(); i++) {
-			if(nome.equals(c.getNome())) {
-				JOptionPane.showMessageDialog(null, "Usuário já existente");
-			}else{
-				c.setEmail(String email);
-			}
-		}
-		return null;
-	}
+//	public Cliente efetuarRegistro(Cliente c, TelaRegistro email, TelaRegistro nome, TelaRegistro senha) {
+//		for (int i = 0; i < tabelaCliente.size(); i++) {
+//			if(nome.equals(c.getNome())) {
+//				JOptionPane.showMessageDialog(null, "Usuário já existente");
+//			}else{
+//				c.setEmail(String email);
+//			}
+//		}
+//		return null;
+//	}
 
 }
