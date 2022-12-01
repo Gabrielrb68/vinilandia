@@ -25,7 +25,6 @@ public class ClienteControl {
 			instancia = new ClienteControl();
 			tabelaCliente = new ArrayList<>();
 		}
-
 		return instancia;
 	}
 
@@ -56,9 +55,9 @@ public class ClienteControl {
 	}
 
 	public boolean deletar(Cliente c, int idCliente) {
-		for (Cliente usuario : tabelaCliente) {
-			if (usuario.getCpf() == idCliente) {
-				tabelaCliente.remove(usuario);
+		for (Cliente cliente : tabelaCliente) {
+			if (cliente.getCpf() == idCliente) {
+				tabelaCliente.remove(cliente);
 				return true;
 			}
 		}
@@ -70,23 +69,13 @@ public class ClienteControl {
 	}
 
 	public Cliente efetuarLogin(String email, String senha) {
-
-//		if() {
-
-//		}
+		for(Cliente c : tabelaCliente) {
+			if(c.getEmail().equals(email) && c.getSenha().equals(senha)) {
+				return c;
+			}
+		}
 
 		return null;
 	}
-
-//	public Cliente efetuarRegistro(Cliente c, TelaRegistro email, TelaRegistro nome, TelaRegistro senha) {
-//		for (int i = 0; i < tabelaCliente.size(); i++) {
-//			if(nome.equals(c.getNome())) {
-//				JOptionPane.showMessageDialog(null, "Usuário já existente");
-//			}else{
-//				c.setEmail(String email);
-//			}
-//		}
-//		return null;
-//	}
 
 }

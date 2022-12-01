@@ -6,9 +6,14 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controle.ClienteControl;
+import modelo.Cliente;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -64,11 +69,20 @@ public class TelaLogin extends JFrame {
 		btnContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// verificar o login
-				dispose();
-				TelaPadrao telaPadrao = new TelaPadrao();
-				telaPadrao.setLocationRelativeTo(null);
-				telaPadrao.setVisible(true);
+				String email = txtEmail.getText();
+				String senha = txtSenha.getText();
 				
+				ClienteControl clienteControl = ClienteControl.getInstancia();
+				Cliente c = clienteControl.efetuarLogin(email, senha);
+				
+				if(c!=null) {
+					dispose();
+					TelaPadrao telaPadrao = new TelaPadrao();
+					telaPadrao.setLocationRelativeTo(null);
+					telaPadrao.setVisible(true);
+				}else {
+					JOptionPane.showMessageDialog(btnContinuar, "Dados incorretos");
+				}
 			}
 		});
 		btnContinuar.setForeground(new Color(255, 255, 255));
