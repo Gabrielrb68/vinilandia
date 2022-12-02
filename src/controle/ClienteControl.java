@@ -45,9 +45,9 @@ public class ClienteControl {
 	}
 
 	public boolean alterar(Cliente c, long cpf) {
-		for (Cliente usuario : tabelaCliente) {
-			if (usuario.getCpf() == cpf) {
-				usuario.setNome(c.getNome());
+		for (Cliente cliente : tabelaCliente) {
+			if (cliente.getCpf() == cpf) {
+				cliente.setNome(c.getNome());
 				return true;
 			}
 		}
@@ -64,7 +64,7 @@ public class ClienteControl {
 		return false;
 	}
 
-	public ArrayList<Cliente> listaUsuarios() {
+	public ArrayList<Cliente> listaCliente() {
 		return this.tabelaCliente;
 	}
 

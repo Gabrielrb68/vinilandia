@@ -2,16 +2,31 @@ package modelo;
 
 public class Disco {
 	
+	private String nome;
 	private String genero;
 	private String descrição;
-	private float preco;
+	private Float preco;
 	private String comentar;
-	private float avaliacao;
+	private Float avaliacao;
+	private Integer discoid;
+	private String autor;
 	//private ? foto;
 
-	private String autor;
+	public Integer getDiscoid() {
+		return discoid;
+	}
+	public void setDicoid(Integer discoid) {
+		this.discoid = discoid;
+	}
+	
 	public String getAutor() {
 		return autor;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public void setAutor(String autor) {
 		this.autor = autor;
@@ -28,7 +43,7 @@ public class Disco {
 	public void setDescrição(String descrição) {
 		this.descrição = descrição;
 	}
-	public float getPreco() {
+	public Float getPreco() {
 		return preco;
 	}
 	public void setPreco(float preco) {
@@ -40,7 +55,7 @@ public class Disco {
 	public void setComentar(String comentar) {
 		this.comentar = comentar;
 	}
-	public float getAvaliacao() {
+	public Float getAvaliacao() {
 		return avaliacao;
 	}
 	public void setAvaliacao(float avaliacao) {
