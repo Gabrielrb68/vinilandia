@@ -17,6 +17,7 @@ public class ClienteControl {
 	 * 
 	 * 
 	 * Apenas este metodo deve ser utilizado
+	 * 
 	 * @return
 	 */
 	public static ClienteControl getInstancia() {
@@ -29,8 +30,7 @@ public class ClienteControl {
 	}
 
 	/**
-	 * Construtor da classe privado
-	 * impedindo que seja instanciada
+	 * Construtor da classe privado impedindo que seja instanciada
 	 */
 	private ClienteControl() {
 
@@ -65,12 +65,12 @@ public class ClienteControl {
 	}
 
 	public ArrayList<Cliente> listaCliente() {
-		return this.tabelaCliente;
+		return tabelaCliente;
 	}
 
 	public Cliente efetuarLogin(String email, String senha) {
-		for(Cliente c : tabelaCliente) {
-			if(c.getEmail().equals(email) && c.getSenha().equals(senha)) {
+		for (Cliente c : tabelaCliente) {
+			if (c.getEmail().equals(email) && c.getSenha().equals(senha)) {
 				return c;
 			}
 		}

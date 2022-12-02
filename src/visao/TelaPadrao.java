@@ -3,6 +3,7 @@ package visao;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -11,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import controle.DiscoControl;
+import modelo.Disco;
 
 public class TelaPadrao extends JFrame {
 
@@ -21,6 +25,22 @@ public class TelaPadrao extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPadrao() {
+		
+		// jtable
+		DiscoControl dC = DiscoControl.getInstancia();
+		ArrayList<Disco> listaDiscos = dC.listaDiscos();
+		
+		for (Disco disco : listaDiscos) {
+			// modelo jtable
+		}
+		// setar o modelo
+		
+		
+		// codigo do botao
+		// pegar o disco selecioando
+		TelaDisco telaDisco = new TelaDisco(discoSelecionado);
+		telaDisco.setVisible(true);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -40,11 +60,6 @@ public class TelaPadrao extends JFrame {
 		cbFiltro.setBackground(new Color(128, 0, 128));
 		cbFiltro.setBounds(364, 10, 60, 22);
 		contentPane.add(cbFiltro);
-
-		JTextArea txtAreaDiscos = new JTextArea();
-		txtAreaDiscos.setBackground(new Color(250, 240, 230));
-		txtAreaDiscos.setBounds(10, 56, 251, 194);
-		contentPane.add(txtAreaDiscos);
 
 		JButton btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.addActionListener(new ActionListener() {
@@ -84,13 +99,27 @@ public class TelaPadrao extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//enviar id do disco escolhido
+				
 				dispose();
 				TelaDisco telaDisco = new TelaDisco();
 				telaDisco.setLocationRelativeTo(null);
 				telaDisco.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(30, 42, 89, 23);
+		btnNewButton.setBounds(10, 87, 89, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnTestetemp = new JButton("testeTemp2");
+		btnTestetemp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose();
+				TelaDisco telaDisco = new TelaDisco();
+				telaDisco.setLocationRelativeTo(null);
+				telaDisco.setVisible(true);
+			}
+		});
+		btnTestetemp.setBounds(144, 87, 89, 23);
+		contentPane.add(btnTestetemp);
 	}
 }

@@ -8,15 +8,15 @@ public class Disco {
 	private Float preco;
 	private String comentar;
 	private Float avaliacao;
-	private Integer discoid;
+	private Integer discoId;
 	private String autor;
 	//private ? foto;
 
-	public Integer getDiscoid() {
-		return discoid;
+	public Integer getDiscoId() {
+		return discoId;
 	}
-	public void setDicoid(Integer discoid) {
-		this.discoid = discoid;
+	public void setDicoId(Integer discoId) {
+		this.discoId = discoId;
 	}
 	
 	public String getAutor() {

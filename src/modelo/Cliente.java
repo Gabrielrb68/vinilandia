@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Cliente {
 
@@ -12,6 +13,15 @@ public class Cliente {
 	private LocalDate datNascimento;
 	private String genero;
 	private Long cep;
+	private ArrayList<Disco> discosFavoritos;
+
+	public ArrayList<Disco> getDiscosCliente() {
+		return discosFavoritos;
+	}
+
+	public void setDiscosCliente(ArrayList<Disco> discosCliente) {
+		this.discosFavoritos = discosCliente;
+	}
 
 	public String getNome() {
 		return nome;
@@ -68,15 +78,14 @@ public class Cliente {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	
+
 	public Long getCep() {
-		
+
 		return cep;
 	}
-	
+
 	public void setCep(Long cep) {
 		this.cep = cep;
 	}
 
 }
-
