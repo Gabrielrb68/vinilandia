@@ -143,12 +143,16 @@ public class TelaRegistro extends JFrame {
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				if(!txtEmail.getText().isBlank() && !txtNome.getText().isBlank() && !txtSenha.getText().isBlank() && !txtCPF.getText().isBlank() && !txtGen.getText().isBlank() && !txtCEP.getText().isBlank()) {
 				// Pega todos os dados do campo de texto
 				String email = txtEmail.getText();
 				String nome = txtNome.getText();
 				String senha = txtSenha.getText();
-
+				Long cpf = Long.valueOf(txtCPF.getText());
+				String genero = txtGen.getText();
+				Long cep = Long.valueOf(txtCEP.getText());
+				//LocalDate datNascimento = 
+				
 				// Instancia um obj cliente
 				Cliente c = new Cliente();
 
@@ -156,7 +160,10 @@ public class TelaRegistro extends JFrame {
 				c.setNome(nome);
 				c.setEmail(email);
 				c.setSenha(senha);
-
+				c.setCpf(cpf);
+				c.setGenero(genero);
+				c.setCep(cep);
+			
 				// registra o cliente
 				ClienteControl clienteControl = ClienteControl.getInstancia();
 				boolean valida = clienteControl.insert(c);
@@ -173,7 +180,9 @@ public class TelaRegistro extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "Erro ao cadastrar!");
 				}
-
+			}else {
+				JOptionPane.showMessageDialog(null, "Valores Vazios!");
+			}
 			}
 		});
 		btnRegistrar.setBackground(new Color(255, 160, 122));
