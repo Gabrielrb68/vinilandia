@@ -15,11 +15,13 @@ import javax.swing.border.EmptyBorder;
 
 import controle.DiscoControl;
 import modelo.Disco;
+import javax.swing.JTable;
 
 public class TelaPadrao extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtPesquisa;
+	private JTable tableDiscos;
 
 	/**
 	 * Create the frame.
@@ -121,5 +123,9 @@ public class TelaPadrao extends JFrame {
 		});
 		btnTestetemp.setBounds(144, 87, 89, 23);
 		contentPane.add(btnTestetemp);
+		
+		tableDiscos = new JTable();
+		tableDiscos.setBounds(241, 125, -220, 101);
+		contentPane.add(tableDiscos);
 	}
 }

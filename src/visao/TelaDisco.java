@@ -25,15 +25,6 @@ public class TelaDisco extends JFrame {
 	 */
 	public TelaDisco(Disco disco) {
 		
-		if(disco!=null) {
-			// setar texto nos labels
-			lblAutor.setText(d.getAutor());
-			lblAvaliacao.setText(String.valueOf(d.getAvaliacao()));
-			lblDesc.setText(d.getDescrição());
-			lblGenero.setText(d.getGenero());
-			lblPreco.setText(String.valueOf(d.getPreco()));
-
-		}
 
 		this.discoControl = DiscoControl.getInstancia();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,6 +82,15 @@ public class TelaDisco extends JFrame {
 		lblAvaliacao.setBounds(227, 134, 46, 14);
 		contentPane.add(lblAvaliacao);
 
+		if(disco!=null) {
+			// setar texto nos labels
+			lblAutor.setText(disco.getAutor());
+			lblAvaliacao.setText(String.valueOf(disco.getAvaliacao()));
+			lblDesc.setText(disco.getDescrição());
+			lblGenero.setText(disco.getGenero());
+			lblPreco.setText(String.valueOf(disco.getPreco()));
+
+		}
 
 		JButton btnLike = new JButton("Like");
 		btnLike.setBackground(new Color(255, 255, 128));
