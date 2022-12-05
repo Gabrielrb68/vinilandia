@@ -5,20 +5,11 @@ public class Disco {
 	private String nome;
 	private String genero;
 	private String descrição;
-	private Float preco;
-	private String comentar;
+	private Double preco;
 	private Float avaliacao;
-	private Integer discoId;
 	private String autor;
 	//private ? foto;
 
-	public Integer getDiscoId() {
-		return discoId;
-	}
-	public void setDicoId(Integer discoId) {
-		this.discoId = discoId;
-	}
-	
 	public String getAutor() {
 		return autor;
 	}
@@ -43,17 +34,11 @@ public class Disco {
 	public void setDescrição(String descrição) {
 		this.descrição = descrição;
 	}
-	public Float getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(float preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
-	}
-	public String getComentar() {
-		return comentar;
-	}
-	public void setComentar(String comentar) {
-		this.comentar = comentar;
 	}
 	public Float getAvaliacao() {
 		return avaliacao;
