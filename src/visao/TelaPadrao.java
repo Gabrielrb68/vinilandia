@@ -103,7 +103,6 @@ public class TelaPadrao extends JFrame {
 				//enviar id do disco escolhido
 				
 				dispose();
-				TelaDisco telaDisco = new TelaDisco();
 				telaDisco.setLocationRelativeTo(null);
 				telaDisco.setVisible(true);
 			}
@@ -116,7 +115,6 @@ public class TelaPadrao extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				dispose();
-				TelaDisco telaDisco = new TelaDisco();
 				telaDisco.setLocationRelativeTo(null);
 				telaDisco.setVisible(true);
 			}
