@@ -15,6 +15,14 @@ public class Cliente {
 	private Long cep;
 	private ArrayList<Disco> discosFavoritos;
 
+	public Cliente(String email, String senha) {
+		this.email = email;
+		this.senha = senha;
+	}
+
+	public Cliente() {
+	}
+
 	public ArrayList<Disco> getDiscosCliente() {
 		return discosFavoritos;
 	}

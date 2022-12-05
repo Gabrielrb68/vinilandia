@@ -25,6 +25,9 @@ public class ClienteControl {
 		if (instancia == null) {
 			instancia = new ClienteControl();
 			tabelaCliente = new ArrayList<>();
+			
+			// pre cadastro
+			tabelaCliente.add(new Cliente("admin", "admin"));
 		}
 		return instancia;
 	}
@@ -64,6 +67,7 @@ public class ClienteControl {
 		return false;
 	}
 
+	// Collections.sort()
 	public ArrayList<Cliente> listaCliente() {
 		return tabelaCliente;
 	}
