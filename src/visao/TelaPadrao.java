@@ -12,21 +12,22 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.DiscoControl;
 import modelo.Disco;
-import javax.swing.JTable;
 
 public class TelaPadrao extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtPesquisa;
 	private JTable tableDiscos;
+	private DefaultTableModel modelo;
 	private Disco discoSelecionado;
+	private JTable table;
 
 	/**
 	 * Construtor
@@ -88,14 +89,13 @@ public class TelaPadrao extends JFrame {
 		contentPane.add(btnDesejo);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 55, 251, 195);
+		scrollPane.setBounds(25, 57, 223, 193);
 		contentPane.add(scrollPane);
 
 		// criando e definindo configuracoes do jtable
-		tableDiscos = new JTable();
-		tableDiscos.setBounds(241, 42, -220, 208);
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
-		tableDiscos.setModel(modelo);
+		tableDiscos = new JTable(modelo);
+		scrollPane.setViewportView(tableDiscos);
 		scrollPane.add(tableDiscos);
 
 		// carregando os dados do bd fake
@@ -107,10 +107,6 @@ public class TelaPadrao extends JFrame {
 			modelo.addRow(new Object[] { disco.getId(), disco.getNome() });
 		}
 		tableDiscos.setModel(modelo);
-
-//		TelaDisco telaDisco = new TelaDisco(discoSelecionado);
-//		telaDisco.setVisible(true);
-
 		tableDiscos.addMouseListener(new MouseAdapter() {
 
 			@Override
@@ -122,5 +118,6 @@ public class TelaPadrao extends JFrame {
 
 			}
 		});
+
 	}
 }
