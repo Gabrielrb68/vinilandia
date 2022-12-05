@@ -25,6 +25,7 @@ public class DiscoControl {
 
 		// 1 disco
 		Disco d = new Disco();
+		d.setId(1l);
 		d.setAutor("Tim Maia");
 		d.setNome("O Descubridor dos Sete Mares");
 		d.setGenero("Soul");
@@ -35,6 +36,7 @@ public class DiscoControl {
 
 		// 2 disco
 		Disco d2 = new Disco();
+		d2.setId(2l);
 		d2.setAutor("Toby Fox");
 		d2.setNome("Undertale - The Musical");
 		d2.setGenero("Eletrônico");
@@ -44,6 +46,7 @@ public class DiscoControl {
 		tabelaDisco.add(d2);
 
 		Disco d3 = new Disco();
+		d3.setId(3l);
 		d3.setAutor("Electric Light Orchestra");
 		d3.setNome("Out of Blue");
 		d3.setGenero("Rock");
@@ -53,6 +56,7 @@ public class DiscoControl {
 		tabelaDisco.add(d3);
 
 		Disco d4 = new Disco();
+		d4.setId(4l);
 		d4.setAutor("Ednaldo Pereira");
 		d4.setNome("Ednaldo Pereira: Só as Melhores");
 		d4.setGenero("Pop Rock");
@@ -62,6 +66,7 @@ public class DiscoControl {
 		tabelaDisco.add(d4);
 
 		Disco d5 = new Disco();
+		d5.setId(5l);
 		d5.setAutor("The Living Tombstone");
 		d5.setNome("Five Nights at Freddy's Songs");
 		d5.setGenero("Eletrônico");
@@ -71,6 +76,7 @@ public class DiscoControl {
 		tabelaDisco.add(d5);
 
 		Disco d6 = new Disco();
+		d6.setId(6l);
 		d6.setAutor("Michael Jackson");
 		d6.setNome("Off The Wall");
 		d6.setGenero("Pop Rock");
@@ -80,6 +86,7 @@ public class DiscoControl {
 		tabelaDisco.add(d6);
 
 		Disco d7 = new Disco();
+		d7.setId(7l);
 		d7.setAutor("Metal Gear Solid 3");
 		d7.setNome("Metal Gear Solid 3: Snake Eater Original Soundtrack");
 		d7.setGenero("Rock");
@@ -89,6 +96,7 @@ public class DiscoControl {
 		tabelaDisco.add(d7);
 
 		Disco d8 = new Disco();
+		d8.setId(8l);
 		d8.setAutor("Mojang");
 		d8.setNome("Minecraft Soundtrack");
 		d8.setGenero("Indie");
@@ -98,6 +106,7 @@ public class DiscoControl {
 		tabelaDisco.add(d8);
 
 		Disco d9 = new Disco();
+		d9.setId(9l);
 		d9.setAutor("JOJO");
 		d9.setNome("JOJO Part 2 Soundtrack");
 		d9.setGenero("Bizarre");
@@ -107,6 +116,7 @@ public class DiscoControl {
 		tabelaDisco.add(d9);
 
 		Disco d10 = new Disco();
+		d10.setId(10l);
 		d10.setAutor("Spike Chunsoft");
 		d10.setNome("Danganronpa Soundtrack");
 		d10.setGenero("Eletrônico");

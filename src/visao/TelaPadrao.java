@@ -1,6 +1,7 @@
 package visao;
 
 import java.awt.Color;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -93,31 +94,44 @@ public class TelaPadrao extends JFrame {
 		contentPane.add(scrollPane);
 
 		// criando e definindo configuracoes do jtable
-		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
-		tableDiscos = new JTable(modelo);
-		scrollPane.setViewportView(tableDiscos);
-		scrollPane.add(tableDiscos);
 
 		// carregando os dados do bd fake
 		DiscoControl dC = DiscoControl.getInstancia();
 		ArrayList<Disco> listaDiscos = dC.listaDiscos();
+
+		tableDiscos = new JTable(modelo);
+		tableDiscos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int linha = tableDiscos.getSelectedRow();
+				Long id = (Long) tableDiscos.getValueAt(linha, 0);
+				for (Disco disco : listaDiscos) {
+					if (disco.getId() == id) {
+						discoSelecionado = disco;
+					}
+				}
+			}
+		});
+		scrollPane.setViewportView(tableDiscos);
+		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
+		tableDiscos.setModel(modelo);
 
 		// carregando os dados no jtable
 		for (Disco disco : listaDiscos) {
 			modelo.addRow(new Object[] { disco.getId(), disco.getNome() });
 		}
 		tableDiscos.setModel(modelo);
-		tableDiscos.addMouseListener(new MouseAdapter() {
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// Pega a linha selecionada
-				int posicao = tableDiscos.getSelectedRow();
-
-				tableDiscos.getValueAt(posicao, 0);
-
+		JButton btnAbrirDetalheDisco = new JButton("New button");
+		btnAbrirDetalheDisco.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaDisco telaDisco = new TelaDisco(discoSelecionado);
+				telaDisco.setLocationRelativeTo(null);
+				telaDisco.setVisible(true);
 			}
 		});
-
+		btnAbrirDetalheDisco.setBounds(283, 134, 89, 23);
+		contentPane.add(btnAbrirDetalheDisco);
 	}
 }

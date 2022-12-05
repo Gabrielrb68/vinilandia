@@ -12,21 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import controle.DiscoControl;
 import modelo.Disco;
 
 public class TelaDisco extends JFrame {
 
 	private JPanel contentPane;
-	private DiscoControl discoControl;
 
 	/**
 	 * Create the frame.
 	 */
-	public TelaDisco(Disco disco) {
-		
+	public TelaDisco(Disco discoSelecionado) {
 
-		this.discoControl = DiscoControl.getInstancia();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 477);
 		contentPane = new JPanel();
@@ -82,13 +78,13 @@ public class TelaDisco extends JFrame {
 		lblAvaliacao.setBounds(227, 134, 46, 14);
 		contentPane.add(lblAvaliacao);
 
-		if(disco!=null) {
+		if (discoSelecionado != null) {
 			// setar texto nos labels
-			lblAutor.setText(disco.getAutor());
-			lblAvaliacao.setText(String.valueOf(disco.getAvaliacao()));
-			lblDesc.setText(disco.getDescrição());
-			lblGenero.setText(disco.getGenero());
-			lblPreco.setText(String.valueOf(disco.getPreco()));
+			lblAutor.setText(discoSelecionado.getAutor());
+			lblAvaliacao.setText(String.valueOf(discoSelecionado));
+			lblDesc.setText(discoSelecionado.getDescrição());
+			lblGenero.setText(discoSelecionado.getGenero());
+			lblPreco.setText(String.valueOf(discoSelecionado.getPreco()));
 
 		}
 
