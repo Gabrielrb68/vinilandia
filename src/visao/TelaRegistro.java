@@ -16,6 +16,7 @@ import controle.ClienteControl;
 import modelo.Cliente;
 
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 
 public class TelaRegistro extends JFrame {
@@ -128,61 +129,76 @@ public class TelaRegistro extends JFrame {
 		contentPane.add(txtAno);
 		txtAno.setColumns(10);
 
-		JComboBox cbDia = new JComboBox();
+		JComboBox<String> cbDia = new JComboBox<>();
 		cbDia.setForeground(new Color(64, 0, 128));
 		cbDia.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		cbDia.setBounds(140, 209, 55, 22);
+		for (int i = 1; i <= 31; i++) {
+			cbDia.addItem(String.valueOf(i));
+		}
 		contentPane.add(cbDia);
 
-		JComboBox cbMes = new JComboBox();
+		JComboBox<String> cbMes = new JComboBox<>();
 		cbMes.setForeground(new Color(64, 0, 128));
 		cbMes.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		cbMes.setBounds(205, 209, 55, 22);
+		for (int i = 1; i <= 12; i++) {
+			cbMes.addItem(String.valueOf(i));
+		}
 		contentPane.add(cbMes);
 
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!txtEmail.getText().isBlank() && !txtNome.getText().isBlank() && !txtSenha.getText().isBlank() && !txtCPF.getText().isBlank() && !txtGen.getText().isBlank() && !txtCEP.getText().isBlank()) {
-				// Pega todos os dados do campo de texto
-				String email = txtEmail.getText();
-				String nome = txtNome.getText();
-				String senha = txtSenha.getText();
-				Long cpf = Long.valueOf(txtCPF.getText());
-				String genero = txtGen.getText();
-				Long cep = Long.valueOf(txtCEP.getText());
-				//LocalDate datNascimento = 
-				
-				// Instancia um obj cliente
-				Cliente c = new Cliente();
+				if (!txtEmail.getText().isBlank() && !txtNome.getText().isBlank() && !txtSenha.getText().isBlank()
+						&& !txtCPF.getText().isBlank() && !txtGen.getText().isBlank() && !txtCEP.getText().isBlank()) {
+					// Pega todos os dados do campo de texto
+					String email = txtEmail.getText();
+					String nome = txtNome.getText();
+					String senha = txtSenha.getText();
+					Long cpf = Long.valueOf(txtCPF.getText());
+					String genero = txtGen.getText();
+					Long cep = Long.valueOf(txtCEP.getText());
 
-				// faz todos os sets no obj
-				c.setNome(nome);
-				c.setEmail(email);
-				c.setSenha(senha);
-				c.setCpf(cpf);
-				c.setGenero(genero);
-				c.setCep(cep);
-			
-				// registra o cliente
-				ClienteControl clienteControl = ClienteControl.getInstancia();
-				boolean valida = clienteControl.insert(c);
-				if (valida == true) {
-					// cadastrou com sucesso
-					// exibir msg
-					
-					JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+					// LocalDate datNascimento =
+					String dia = (String) cbDia.getSelectedItem();
+					String mes = (String) cbMes.getSelectedItem();
+					String ano = txtAno.getText();
 
-					dispose();
-					TelaLogin telaLogin = new TelaLogin();
-					telaLogin.setLocationRelativeTo(null);
-					telaLogin.setVisible(true);
+					LocalDate dataNasc = LocalDate.of(Integer.parseInt(ano), Integer.parseInt(mes),
+							Integer.parseInt(dia));
+
+					// Instancia um obj cliente
+					Cliente c = new Cliente();
+
+					// faz todos os sets no obj
+					c.setNome(nome);
+					c.setEmail(email);
+					c.setSenha(senha);
+					c.setCpf(cpf);
+					c.setGenero(genero);
+					c.setCep(cep);
+					c.setDatNascimento(dataNasc);
+
+					// registra o cliente
+					ClienteControl clienteControl = ClienteControl.getInstancia();
+					boolean valida = clienteControl.insert(c);
+					if (valida == true) {
+						// cadastrou com sucesso
+						// exibir msg
+
+						JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+
+						dispose();
+						TelaLogin telaLogin = new TelaLogin();
+						telaLogin.setLocationRelativeTo(null);
+						telaLogin.setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(null, "Erro ao cadastrar!");
+					}
 				} else {
-					JOptionPane.showMessageDialog(null, "Erro ao cadastrar!");
+					JOptionPane.showMessageDialog(null, "Valores Vazios!");
 				}
-			}else {
-				JOptionPane.showMessageDialog(null, "Valores Vazios!");
-			}
 			}
 		});
 		btnRegistrar.setBackground(new Color(255, 160, 122));
