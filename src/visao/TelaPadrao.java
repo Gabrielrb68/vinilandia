@@ -97,35 +97,12 @@ public class TelaPadrao extends JFrame {
 		btnDesejo.setBounds(282, 57, 131, 53);
 		contentPane.add(btnDesejo);
 		
-		JButton btnNewButton = new JButton("testeTemp");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//enviar id do disco escolhido
-				
-				dispose();
-				TelaDisco telaDisco = new TelaDisco();
-				telaDisco.setLocationRelativeTo(null);
-				telaDisco.setVisible(true);
-			}
-		});
-		btnNewButton.setBounds(10, 87, 89, 23);
-		contentPane.add(btnNewButton);
-		
-		JButton btnTestetemp = new JButton("testeTemp2");
-		btnTestetemp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				dispose();
-				TelaDisco telaDisco = new TelaDisco();
-				telaDisco.setLocationRelativeTo(null);
-				telaDisco.setVisible(true);
-			}
-		});
-		btnTestetemp.setBounds(144, 87, 89, 23);
-		contentPane.add(btnTestetemp);
-		
 		tableDiscos = new JTable();
-		tableDiscos.setBounds(241, 125, -220, 101);
+		tableDiscos.setBounds(241, 42, -220, 208);
 		contentPane.add(tableDiscos);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(30, 42, 211, 208);
+		contentPane.add(panel);
 	}
 }
