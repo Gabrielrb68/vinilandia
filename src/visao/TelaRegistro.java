@@ -145,7 +145,7 @@ public class TelaRegistro extends JFrame {
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!txtEmail.getText().isBlank() && !txtNome.getText().isBlank() && !txtSenha.getText().isBlank()
-						&& !txtCPF.getText().isBlank() && !txtCEP.getText().isBlank()) {
+						&& !txtCPF.getText().isBlank() && !txtCEP.getText().isBlank() && !txtAno.getText().isBlank()) {
 					// Pega todos os dados do campo de texto
 					String email = txtEmail.getText();
 					String nome = txtNome.getText();

@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import controle.CartoesControl;
 import modelo.Cartoes;
 import modelo.Cliente;
 
@@ -97,20 +98,24 @@ public class TelaCompra extends JFrame {
 		btnComprar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//verificar cartao
-				public Cartoes confirmarCompra(String nomeDoCartao, Long numCartao, Integer codSeguranca, Integer mesValidade, Integer anoValidade ) { 
-					for (Cartoes ct : tabelaCartoes) {
-						if (ct.getnomeDoCartao().equals(nomeDoCartao) && ct.getnumCartao().equals(numCartao) && ct.getcodSeguranca().equals(codSeguranca) && ct.getmesValidade().equals(mesValidade) && ct.getanoValidade().equals(anoValidade)) {
-							return ct;
-						}
-					}
+				String nomeDoCartao = txtDonoCartao.getText();
+				Long numCartao = Long.valueOf(txtCartao.getText());
+				Integer codSeguranca = Integer.valueOf(txtSeguranca.getText());
+				Integer mesValidade = Integer.valueOf(txtValidadeMes.getText());
+				Integer anoValidade = Integer.valueOf(txtValidadeAno.getText());
 				
-					return null;
-			
+				CartoesControl cartoesControl = CartoesControl.getinstancia();
+				Cartoes ct = cartoesControl.verificarCartao(nomeDoCartao, numCartao, codSeguranca, mesValidade, anoValidade);
+				
+				if(ct!=null) {
 					JOptionPane.showMessageDialog(btnComprar, "Pedido a caminho, agradecemos sua compra");
+				}else {
+					JOptionPane.showMessageDialog(btnComprar, "Dados incorretos");
 				}
 			}
-			
-		);
+				
+		});
+		
 		btnComprar.setForeground(new Color(255, 255, 255));
 		btnComprar.setFont(new Font("Arial Black", Font.BOLD, 20));
 		btnComprar.setBackground(new Color(255, 160, 122));
