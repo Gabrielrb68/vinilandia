@@ -214,7 +214,7 @@ public class TelaRegistro extends JFrame {
 		btnVoltar.setBounds(304, 174, 103, 23);
 		contentPane.add(btnVoltar);
 		
-		JComboBox cbPronome = new JComboBox();
+		JComboBox<String> cbPronome = new JComboBox<>();
 		cbPronome.setBounds(140, 149, 86, 22);
 		contentPane.add(cbPronome);
 		cbPronome.addItem("Ele/Dele");

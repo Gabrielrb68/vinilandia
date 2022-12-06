@@ -50,18 +50,12 @@ public class TelaPadrao extends JFrame {
 		contentPane.add(txtPesquisa);
 		txtPesquisa.setColumns(10);
 
-		JComboBox cbFiltro = new JComboBox();
+		JComboBox<String> cbFiltro = new JComboBox<>();
 		cbFiltro.setBackground(new Color(128, 0, 128));
 		cbFiltro.setBounds(364, 10, 60, 22);
 		contentPane.add(cbFiltro);
-
-		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPesquisar.setBounds(258, 10, 96, 23);
-		contentPane.add(btnPesquisar);
+		String Filtro[] = {""};
+		
 
 		JButton btnDeslogar = new JButton("Deslogar");
 		btnDeslogar.addActionListener(new ActionListener() {
@@ -114,6 +108,7 @@ public class TelaPadrao extends JFrame {
 		});
 		scrollPane.setViewportView(tableDiscos);
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
+		DefaultTableModel pesquisa = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
 		tableDiscos.setModel(modelo);
 
 		// carregando os dados no jtable
@@ -122,6 +117,25 @@ public class TelaPadrao extends JFrame {
 		}
 		tableDiscos.setModel(modelo);
 
+		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!txtPesquisa.getText().isBlank()) {
+					pesquisa.setRowCount(0);
+					for (Disco disco : listaDiscos) {
+						if(disco.getNome().equalsIgnoreCase(txtPesquisa.getText())) {
+							pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
+						}
+					}
+					tableDiscos.setModel(pesquisa);
+				}else {
+					tableDiscos.setModel(modelo);
+				}
+			}
+		});
+		btnPesquisar.setBounds(258, 10, 96, 23);
+		contentPane.add(btnPesquisar);
+		
 		JButton btnAbrirDetalheDisco = new JButton("New button");
 		btnAbrirDetalheDisco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
