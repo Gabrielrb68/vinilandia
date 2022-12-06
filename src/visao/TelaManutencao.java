@@ -2,12 +2,14 @@ package visao;
 
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 
 public class TelaManutencao extends JFrame {
 
@@ -65,5 +67,11 @@ public class TelaManutencao extends JFrame {
 		lblNewLabel_1.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		lblNewLabel_1.setBounds(163, 236, 364, 14);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/coffee.png")).getImage();
+		lblNewLabel_2.setIcon(new ImageIcon(img));
+		lblNewLabel_2.setBounds(198, 94, 210, 143);
+		contentPane.add(lblNewLabel_2);
 	}
 }
