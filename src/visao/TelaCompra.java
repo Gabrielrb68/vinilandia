@@ -1,6 +1,7 @@
 package visao;
 
 import java.awt.Color;
+
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -10,9 +11,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import modelo.Cartoes;
+import modelo.Cliente;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 public class TelaCompra extends JFrame {
 
 	private JPanel contentPane;
@@ -93,10 +97,20 @@ public class TelaCompra extends JFrame {
 		btnComprar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//verificar cartao
+				public Cartoes confirmarCompra(String nomeDoCartao, Long numCartao, Integer codSeguranca, Integer mesValidade, Integer anoValidade ) { 
+					for (Cartoes ct : tabelaCartoes) {
+						if (ct.getnomeDoCartao().equals(nomeDoCartao) && ct.getnumCartao().equals(numCartao) && ct.getcodSeguranca().equals(codSeguranca) && ct.getmesValidade().equals(mesValidade) && ct.getanoValidade().equals(anoValidade)) {
+							return ct;
+						}
+					}
 				
-				JOptionPane.showMessageDialog(btnComprar, "Pedido a caminho, agradecemos sua compra");
+					return null;
+			
+					JOptionPane.showMessageDialog(btnComprar, "Pedido a caminho, agradecemos sua compra");
+				}
 			}
-		});
+			
+		);
 		btnComprar.setForeground(new Color(255, 255, 255));
 		btnComprar.setFont(new Font("Arial Black", Font.BOLD, 20));
 		btnComprar.setBackground(new Color(255, 160, 122));
