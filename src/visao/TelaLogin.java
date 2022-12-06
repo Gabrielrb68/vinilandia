@@ -74,14 +74,21 @@ public class TelaLogin extends JFrame {
 				
 				ClienteControl clienteControl = ClienteControl.getInstancia();
 				Cliente c = clienteControl.efetuarLogin(email, senha);
-				
-				if(c!=null) {
+					
+				if(email.equals("Bruna") && (senha.equals("Bruna"))) {
 					dispose();
-					TelaPadrao telaPadrao = new TelaPadrao();
-					telaPadrao.setLocationRelativeTo(null);
-					telaPadrao.setVisible(true);
+					TelaManutencao telaManutencao = new TelaManutencao();
+					telaManutencao.setLocationRelativeTo(null);
+					telaManutencao.setVisible(true);
 				}else {
-					JOptionPane.showMessageDialog(btnContinuar, "Dados incorretos");
+					if(c!=null) {
+						dispose();
+						TelaPadrao telaPadrao = new TelaPadrao();
+						telaPadrao.setLocationRelativeTo(null);
+						telaPadrao.setVisible(true);
+					}else {
+						JOptionPane.showMessageDialog(btnContinuar, "Dados incorretos");
+					}
 				}
 			}
 		});

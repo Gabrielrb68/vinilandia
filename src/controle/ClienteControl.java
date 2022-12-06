@@ -3,6 +3,7 @@ package controle;
 import java.util.ArrayList;
 
 import modelo.Cliente;
+import modelo.Disco;
 
 public class ClienteControl {
 
@@ -10,6 +11,7 @@ public class ClienteControl {
 	 * ArrayList simula um banco de dados
 	 */
 	private static ArrayList<Cliente> tabelaCliente;
+	private static ArrayList<Disco> discosCliente;
 	private static ClienteControl instancia;
 
 	/**
@@ -80,6 +82,17 @@ public class ClienteControl {
 		}
 
 		return null;
+	}
+	
+	public static ArrayList<Disco> getListaDesejo() {
+		Cliente c = new Cliente();
+				return c.getDiscosCliente();
+	}
+	public static void setListaDesejo(Disco discoSelecionado) {
+		Cliente c = new Cliente();
+		ArrayList<Disco> discosCliente = c.getDiscosCliente();
+			discosCliente.add(discoSelecionado);
+			c.setDiscosCliente(discosCliente);
 	}
 
 }

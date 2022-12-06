@@ -11,13 +11,26 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import controle.ClienteControl;
+import controle.DiscoControl;
+import modelo.Cliente;
+import modelo.Disco;
+
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
 
 public class TelaDesejos extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtLista;
+	private JTable table;
+	private JTable tableDesejo;
+	private DefaultTableModel modelo;
 
 	/**
 	 * Create the frame.
@@ -39,25 +52,15 @@ public class TelaDesejos extends JFrame {
 		lblNewLabel.setBounds(40, -35, 371, 138);
 		contentPane.add(lblNewLabel);
 
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 76, 304, 174);
-		contentPane.add(scrollPane);
-
-		JTextArea txtAreaDesejo = new JTextArea();
-		scrollPane.setViewportView(txtAreaDesejo);
-
-		txtLista = new JTextField();
-		txtLista.setBounds(338, 79, 86, 20);
-		contentPane.add(txtLista);
-		txtLista.setColumns(10);
-
 		JButton btnRemover = new JButton("Remover");
-		btnRemover.setForeground(new Color(64, 0, 128));
+		btnRemover.setBackground(new Color(255, 160, 122));
+		btnRemover.setForeground(new Color(255, 255, 255));
 		btnRemover.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnRemover.setBounds(335, 110, 89, 23);
+		btnRemover.setBounds(335, 77, 89, 23);
 		contentPane.add(btnRemover);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBackground(new Color(255, 160, 122));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -66,9 +69,33 @@ public class TelaDesejos extends JFrame {
 				telaPadrao.setVisible(true);
 			}
 		});
-		btnVoltar.setForeground(new Color(64, 0, 128));
+		btnVoltar.setForeground(new Color(255, 255, 255));
 		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnVoltar.setBounds(335, 227, 89, 23);
+		btnVoltar.setBounds(335, 114, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(40, 77, 276, 158);
+		contentPane.add(scrollPane);
+		
+		ClienteControl cC = ClienteControl.getInstancia();
+        ArrayList<Disco> listaDiscos = cC.getListaDesejo();
+		//ArrayList<Disco> listaDesejo = 
+		tableDesejo = new JTable(modelo);
+		tableDesejo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int linha = tableDesejo.getSelectedRow();
+				Long id = (Long) tableDesejo.getValueAt(linha, 0);
+			}
+		});
+		scrollPane.setViewportView(tableDesejo);
+		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
+		tableDesejo.setModel(modelo);
+
+		for (Disco disco : listaDiscos) {
+			modelo.addRow(new Object[]{disco.getId(), disco.getNome()});
+		}
 	}
+	
 }

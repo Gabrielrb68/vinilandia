@@ -122,7 +122,7 @@ public class DiscoControl {
 		d10.setGenero("Eletrônico");
 		d10.setDescrição("Masafumi Takada - 2011 - Sound Prestige Records");
 		d10.setPreco(53.00);
-		d10.setAvaliacao(0);
+		d10.setAvaliacao(53);
 		tabelaDisco.add(d10);
 
 	}

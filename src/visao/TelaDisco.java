@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import controle.ClienteControl;
 import modelo.Disco;
 
 public class TelaDisco extends JFrame {
@@ -156,6 +157,11 @@ public class TelaDisco extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnAdicionarDesejo = new JButton("Lista de Desejo +");
+		btnAdicionarDesejo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClienteControl.setListaDesejo(discoSelecionado);
+			}
+		});
 		btnAdicionarDesejo.setBackground(new Color(255, 160, 122));
 		btnAdicionarDesejo.setForeground(new Color(255, 255, 255));
 		btnAdicionarDesejo.setBounds(281, 186, 143, 23);
