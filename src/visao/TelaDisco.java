@@ -86,7 +86,7 @@ public class TelaDisco extends JFrame {
 		if (discoSelecionado != null) {
 			// setar texto nos labels
 			lblAutor.setText(discoSelecionado.getAutor());
-			lblAvaliacao.setText(String.valueOf(discoSelecionado));
+			lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
 			lblDesc.setText(discoSelecionado.getDescrição());
 			lblGenero.setText(discoSelecionado.getGenero());
 			lblPreco.setText(String.valueOf(discoSelecionado.getPreco()));
@@ -94,12 +94,29 @@ public class TelaDisco extends JFrame {
 		}
 
 		JButton btnLike = new JButton("Like");
+		btnLike.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Float avaliacao = discoSelecionado.getAvaliacao()+1;
+				discoSelecionado.setAvaliacao(avaliacao);
+				lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
+			}
+		});
 		btnLike.setForeground(new Color(255, 255, 255));
 		btnLike.setBackground(new Color(154, 205, 50));
 		btnLike.setBounds(10, 221, 102, 23);
 		contentPane.add(btnLike);
+		
 
 		JButton btnDislike = new JButton("Dislike");
+		btnDislike.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Float avaliacao = discoSelecionado.getAvaliacao()-1;
+				discoSelecionado.setAvaliacao(avaliacao);
+				lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
+			
+			
+			}
+		});
 		btnDislike.setForeground(new Color(255, 255, 255));
 		btnDislike.setBackground(new Color(255, 69, 0));
 		btnDislike.setBounds(10, 255, 102, 23);
