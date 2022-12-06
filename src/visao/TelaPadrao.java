@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -54,7 +55,10 @@ public class TelaPadrao extends JFrame {
 		cbFiltro.setBackground(new Color(128, 0, 128));
 		cbFiltro.setBounds(364, 10, 60, 22);
 		contentPane.add(cbFiltro);
-		String Filtro[] = {""};
+		String Filtro[] = {"Nenhum", "Soul", "Eletrônico", "Rock", "Pop Rock", "Indie", "Bizarre"};
+		for (int i = 0; i < Filtro.length; i++) {
+			cbFiltro.addItem(Filtro[i]);
+		}
 		
 
 		JButton btnDeslogar = new JButton("Deslogar");
@@ -120,16 +124,28 @@ public class TelaPadrao extends JFrame {
 		JButton btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!txtPesquisa.getText().isBlank()) {
+				if(txtPesquisa.getText().isBlank() && cbFiltro.getSelectedItem().equals("Nenhum")) {
+					tableDiscos.setModel(modelo);
+				}else {
 					pesquisa.setRowCount(0);
 					for (Disco disco : listaDiscos) {
-						if(disco.getNome().equalsIgnoreCase(txtPesquisa.getText())) {
-							pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
+						if(cbFiltro.getSelectedItem().equals("Nenhum") && (disco.getNome().equalsIgnoreCase(txtPesquisa.getText()))) {
+							if(disco.getNome().equalsIgnoreCase(txtPesquisa.getText())) {
+								pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
+							}
+						}else{
+							if(txtPesquisa.getText().isBlank()) {
+								if(disco.getGenero().equals(String.valueOf(cbFiltro.getSelectedItem()))) {
+									pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
+								}
+							}else {
+								if((disco.getGenero().equals(String.valueOf(cbFiltro.getSelectedItem()))) && (disco.getNome().equalsIgnoreCase(txtPesquisa.getText()))) {
+									pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
+								}
+							}
 						}
 					}
 					tableDiscos.setModel(pesquisa);
-				}else {
-					tableDiscos.setModel(modelo);
 				}
 			}
 		});
