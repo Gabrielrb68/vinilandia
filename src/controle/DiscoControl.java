@@ -27,7 +27,7 @@ public class DiscoControl {
 		Disco d = new Disco();
 		d.setId(1l);
 		d.setAutor("Tim Maia");
-		d.setNome("O Descubridor dos Sete Mares");
+		d.setNome("O Descobridor dos Sete Mares");
 		d.setGenero("Soul");
 		d.setDescrição("Tim Maia - 1983 - PolyGram");
 		d.setPreco(79.90);
