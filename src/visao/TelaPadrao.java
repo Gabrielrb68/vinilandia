@@ -21,7 +21,6 @@ import javax.swing.table.DefaultTableModel;
 
 import controle.DiscoControl;
 import modelo.Disco;
-import java.awt.Font;
 
 public class TelaPadrao extends JFrame {
 
@@ -34,7 +33,7 @@ public class TelaPadrao extends JFrame {
 
 	/**
 	 * Construtor
-	 */
+	 */ 
 	public TelaPadrao() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,14 +47,13 @@ public class TelaPadrao extends JFrame {
 
 		txtPesquisa = new JTextField();
 		txtPesquisa.setBackground(new Color(250, 235, 215));
-		txtPesquisa.setBounds(20, 11, 190, 20);
+		txtPesquisa.setBounds(20, 11, 228, 20);
 		contentPane.add(txtPesquisa);
 		txtPesquisa.setColumns(10);
 
 		JComboBox<String> cbFiltro = new JComboBox<>();
-		cbFiltro.setForeground(new Color(255, 255, 255));
-		cbFiltro.setBackground(new Color(255, 160, 122));
-		cbFiltro.setBounds(326, 10, 98, 22);
+		cbFiltro.setBackground(new Color(128, 0, 128));
+		cbFiltro.setBounds(364, 10, 60, 22);
 		contentPane.add(cbFiltro);
 		String Filtro[] = {"Nenhum", "Soul", "Eletrônico", "Rock", "Pop Rock", "Indie", "Bizarre"};
 		for (int i = 0; i < Filtro.length; i++) {
@@ -64,8 +62,6 @@ public class TelaPadrao extends JFrame {
 		
 
 		JButton btnDeslogar = new JButton("Deslogar");
-		btnDeslogar.setForeground(new Color(255, 255, 255));
-		btnDeslogar.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnDeslogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -74,13 +70,11 @@ public class TelaPadrao extends JFrame {
 				telaIncial.setVisible(true);
 			}
 		});
-		btnDeslogar.setBackground(new Color(255, 160, 122));
-		btnDeslogar.setBounds(268, 197, 145, 53);
+		btnDeslogar.setBackground(new Color(128, 0, 128));
+		btnDeslogar.setBounds(282, 197, 131, 53);
 		contentPane.add(btnDeslogar);
 
 		JButton btnDesejo = new JButton("Lista de desejos");
-		btnDesejo.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnDesejo.setForeground(new Color(255, 255, 255));
 		btnDesejo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -89,8 +83,8 @@ public class TelaPadrao extends JFrame {
 				telaDesejos.setVisible(true);
 			}
 		});
-		btnDesejo.setBackground(new Color(255, 160, 122));
-		btnDesejo.setBounds(268, 57, 145, 53);
+		btnDesejo.setBackground(new Color(128, 0, 128));
+		btnDesejo.setBounds(282, 57, 131, 53);
 		contentPane.add(btnDesejo);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -128,9 +122,6 @@ public class TelaPadrao extends JFrame {
 		tableDiscos.setModel(modelo);
 
 		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnPesquisar.setForeground(new Color(255, 255, 255));
-		btnPesquisar.setBackground(new Color(255, 160, 122));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(txtPesquisa.getText().isBlank() && cbFiltro.getSelectedItem().equals("Nenhum")) {
@@ -158,13 +149,10 @@ public class TelaPadrao extends JFrame {
 				}
 			}
 		});
-		btnPesquisar.setBounds(220, 9, 96, 23);
+		btnPesquisar.setBounds(258, 10, 96, 23);
 		contentPane.add(btnPesquisar);
 		
-		JButton btnAbrirDetalheDisco = new JButton("Selecionar Disco");
-		btnAbrirDetalheDisco.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnAbrirDetalheDisco.setForeground(new Color(255, 255, 255));
-		btnAbrirDetalheDisco.setBackground(new Color(255, 160, 122));
+		JButton btnAbrirDetalheDisco = new JButton("New button");
 		btnAbrirDetalheDisco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -173,7 +161,7 @@ public class TelaPadrao extends JFrame {
 				telaDisco.setVisible(true);
 			}
 		});
-		btnAbrirDetalheDisco.setBounds(268, 127, 145, 53);
+		btnAbrirDetalheDisco.setBounds(283, 134, 89, 23);
 		contentPane.add(btnAbrirDetalheDisco);
 	}
 }
