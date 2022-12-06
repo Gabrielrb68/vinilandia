@@ -24,7 +24,7 @@ public class TelaDisco extends JFrame {
 	public TelaDisco(Disco discoSelecionado) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 477);
+		setBounds(100, 100, 450, 328);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(128, 128, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -33,49 +33,54 @@ public class TelaDisco extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Autor:");
+		lblNewLabel.setForeground(new Color(64, 0, 128));
 		lblNewLabel.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		lblNewLabel.setBounds(204, 11, 46, 14);
+		lblNewLabel.setBounds(187, 22, 46, 14);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Gênero:");
+		lblNewLabel_1.setForeground(new Color(64, 0, 128));
 		lblNewLabel_1.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		lblNewLabel_1.setBounds(204, 36, 46, 14);
+		lblNewLabel_1.setBounds(187, 62, 46, 14);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Descrição:");
+		lblNewLabel_2.setForeground(new Color(64, 0, 128));
 		lblNewLabel_2.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		lblNewLabel_2.setBounds(204, 86, 69, 14);
+		lblNewLabel_2.setBounds(10, 134, 69, 14);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Preço:");
+		lblNewLabel_3.setForeground(new Color(64, 0, 128));
 		lblNewLabel_3.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		lblNewLabel_3.setBounds(204, 61, 46, 14);
+		lblNewLabel_3.setBounds(187, 98, 46, 14);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblAutor = new JLabel("");
-		lblAutor.setBounds(260, 12, 46, 14);
+		lblAutor.setBounds(243, 22, 146, 18);
 		contentPane.add(lblAutor);
 
 		JLabel lblGenero = new JLabel("");
-		lblGenero.setBounds(260, 37, 46, 14);
+		lblGenero.setBounds(243, 61, 146, 14);
 		contentPane.add(lblGenero);
 
 		JLabel lblPreco = new JLabel("");
-		lblPreco.setBounds(260, 62, 46, 14);
+		lblPreco.setBounds(243, 98, 146, 14);
 		contentPane.add(lblPreco);
 
 		JLabel lblDesc = new JLabel("");
 		lblDesc.setVerticalAlignment(SwingConstants.TOP);
-		lblDesc.setBounds(282, 101, 142, 116);
+		lblDesc.setBounds(89, 134, 335, 56);
 		contentPane.add(lblDesc);
 
 		JLabel lblNewLabel_4 = new JLabel("Avaliação:");
+		lblNewLabel_4.setForeground(new Color(64, 0, 128));
 		lblNewLabel_4.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		lblNewLabel_4.setBounds(152, 134, 69, 14);
+		lblNewLabel_4.setBounds(162, 203, 69, 14);
 		contentPane.add(lblNewLabel_4);
 
 		JLabel lblAvaliacao = new JLabel("");
-		lblAvaliacao.setBounds(227, 134, 46, 14);
+		lblAvaliacao.setBounds(172, 228, 99, 48);
 		contentPane.add(lblAvaliacao);
 
 		if (discoSelecionado != null) {
@@ -89,20 +94,24 @@ public class TelaDisco extends JFrame {
 		}
 
 		JButton btnLike = new JButton("Like");
-		btnLike.setBackground(new Color(255, 255, 128));
-		btnLike.setBounds(10, 130, 61, 23);
+		btnLike.setForeground(new Color(255, 255, 255));
+		btnLike.setBackground(new Color(154, 205, 50));
+		btnLike.setBounds(10, 221, 102, 23);
 		contentPane.add(btnLike);
 
 		JButton btnDislike = new JButton("Dislike");
-		btnDislike.setBackground(new Color(255, 255, 128));
-		btnDislike.setBounds(81, 130, 61, 23);
+		btnDislike.setForeground(new Color(255, 255, 255));
+		btnDislike.setBackground(new Color(255, 69, 0));
+		btnDislike.setBounds(10, 255, 102, 23);
 		contentPane.add(btnDislike);
 
 		JLabel lblNewLabel_5 = new JLabel("insira foto aqui");
-		lblNewLabel_5.setBounds(57, 50, 85, 14);
+		lblNewLabel_5.setBounds(51, 63, 85, 14);
 		contentPane.add(lblNewLabel_5);
 
 		JButton btnComprar = new JButton("Comprar");
+		btnComprar.setBackground(new Color(255, 160, 122));
+		btnComprar.setForeground(new Color(255, 255, 255));
 		btnComprar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// adcionar disco ao carrinho
@@ -112,10 +121,12 @@ public class TelaDisco extends JFrame {
 				telaCompra.setVisible(true);
 			}
 		});
-		btnComprar.setBounds(281, 228, 143, 23);
+		btnComprar.setBounds(281, 221, 143, 23);
 		contentPane.add(btnComprar);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setForeground(new Color(255, 255, 255));
+		btnVoltar.setBackground(new Color(255, 160, 122));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -124,8 +135,14 @@ public class TelaDisco extends JFrame {
 				telaPadrao.setVisible(true);
 			}
 		});
-		btnVoltar.setBounds(281, 262, 143, 23);
+		btnVoltar.setBounds(281, 255, 143, 23);
 		contentPane.add(btnVoltar);
+		
+		JButton btnAdicionarDesejo = new JButton("Lista de Desejo +");
+		btnAdicionarDesejo.setBackground(new Color(255, 160, 122));
+		btnAdicionarDesejo.setForeground(new Color(255, 255, 255));
+		btnAdicionarDesejo.setBounds(281, 186, 143, 23);
+		contentPane.add(btnAdicionarDesejo);
 
 	}
 }
