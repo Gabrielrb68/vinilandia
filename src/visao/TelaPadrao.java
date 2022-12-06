@@ -173,7 +173,7 @@ public class TelaPadrao extends JFrame {
 				telaDisco.setVisible(true);
 			}
 		});
-		btnAbrirDetalheDisco.setBounds(269, 134, 145, 53);
+		btnAbrirDetalheDisco.setBounds(269, 126, 145, 53);
 		contentPane.add(btnAbrirDetalheDisco);
 	}
 }
