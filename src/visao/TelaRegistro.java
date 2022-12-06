@@ -26,7 +26,6 @@ public class TelaRegistro extends JFrame {
 	private JTextField txtSenha;
 	private JTextField txtNome;
 	private JTextField txtCPF;
-	private JTextField txtGen;
 	private JTextField txtCEP;
 	private JTextField txtAno;
 	private ClienteControl usuarioControl;
@@ -74,10 +73,10 @@ public class TelaRegistro extends JFrame {
 		lblNewLabel4.setBounds(35, 202, 108, 14);
 		contentPane.add(lblNewLabel4);
 
-		JLabel lblNewLabel5 = new JLabel("Gênero:");
+		JLabel lblNewLabel5 = new JLabel("Pronome: ");
 		lblNewLabel5.setForeground(new Color(64, 0, 128));
 		lblNewLabel5.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		lblNewLabel5.setBounds(35, 152, 46, 14);
+		lblNewLabel5.setBounds(35, 152, 60, 14);
 		contentPane.add(lblNewLabel5);
 
 		JLabel lblNewLabel6 = new JLabel("CEP:");
@@ -111,11 +110,6 @@ public class TelaRegistro extends JFrame {
 		txtCPF.setBounds(140, 124, 86, 20);
 		contentPane.add(txtCPF);
 		txtCPF.setColumns(10);
-
-		txtGen = new JTextField();
-		txtGen.setBounds(140, 149, 86, 20);
-		contentPane.add(txtGen);
-		txtGen.setColumns(10);
 
 		txtCEP = new JTextField();
 		txtCEP.setBounds(140, 174, 86, 20);
@@ -151,13 +145,12 @@ public class TelaRegistro extends JFrame {
 		btnRegistrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!txtEmail.getText().isBlank() && !txtNome.getText().isBlank() && !txtSenha.getText().isBlank()
-						&& !txtCPF.getText().isBlank() && !txtGen.getText().isBlank() && !txtCEP.getText().isBlank()) {
+						&& !txtCPF.getText().isBlank() && !txtCEP.getText().isBlank()) {
 					// Pega todos os dados do campo de texto
 					String email = txtEmail.getText();
 					String nome = txtNome.getText();
 					String senha = txtSenha.getText();
 					Long cpf = Long.valueOf(txtCPF.getText());
-					String genero = txtGen.getText();
 					Long cep = Long.valueOf(txtCEP.getText());
 
 					// LocalDate datNascimento =
@@ -176,16 +169,15 @@ public class TelaRegistro extends JFrame {
 					c.setEmail(email);
 					c.setSenha(senha);
 					c.setCpf(cpf);
-					c.setGenero(genero);
 					c.setCep(cep);
 					c.setDatNascimento(dataNasc);
 
-					// registra o cliente
+					//registra o cliente
 					ClienteControl clienteControl = ClienteControl.getInstancia();
 					boolean valida = clienteControl.insert(c);
 					if (valida == true) {
-						// cadastrou com sucesso
-						// exibir msg
+						//cadastrou com sucesso
+						//exibir msg
 
 						JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
 
@@ -221,5 +213,14 @@ public class TelaRegistro extends JFrame {
 		btnVoltar.setBackground(new Color(255, 160, 122));
 		btnVoltar.setBounds(304, 174, 103, 23);
 		contentPane.add(btnVoltar);
+		
+		JComboBox cbPronome = new JComboBox();
+		cbPronome.setBounds(140, 149, 86, 22);
+		contentPane.add(cbPronome);
+		cbPronome.addItem("Ele/Dele");
+		cbPronome.addItem("Ela/Dela");
+		cbPronome.addItem("Elu/Delu");
+		cbPronome.addItem("Outro");
+		cbPronome.addItem("Não Informar");
 	}
 }

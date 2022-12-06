@@ -93,6 +93,7 @@ public class TelaCompra extends JFrame {
 		btnComprar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//verificar cartao
+				
 				JOptionPane.showMessageDialog(btnComprar, "Pedido a caminho, agradecemos sua compra");
 			}
 		});
