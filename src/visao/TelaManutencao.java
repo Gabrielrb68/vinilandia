@@ -12,6 +12,8 @@ import java.awt.Font;
 import java.awt.Image;
 
 public class TelaManutencao extends JFrame {
+	
+	ImageIcon image;
 
 	private JPanel contentPane;
 
@@ -50,10 +52,10 @@ public class TelaManutencao extends JFrame {
 		lblNewLabel.setBounds(97, 40, 479, 23);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNosTemposSombrios = new JLabel("nos tempos sombrios entre os confins da programação");
+		JLabel lblNosTemposSombrios = new JLabel("nos tempos mais sombrios entre os confins da programação");
 		lblNosTemposSombrios.setForeground(Color.WHITE);
 		lblNosTemposSombrios.setFont(new Font("Arial Black", Font.PLAIN, 16));
-		lblNosTemposSombrios.setBounds(68, 60, 616, 23);
+		lblNosTemposSombrios.setBounds(49, 60, 616, 23);
 		contentPane.add(lblNosTemposSombrios);
 		
 		JLabel lblEmJava = new JLabel("em Java -- que é fortemente tipado, é claro");
@@ -69,9 +71,9 @@ public class TelaManutencao extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/coffee.png")).getImage();
-		lblNewLabel_2.setIcon(new ImageIcon(img));
-		lblNewLabel_2.setBounds(198, 94, 210, 143);
+		Image image = new ImageIcon(this.getClass().getResource("/coffee4.png")).getImage();
+		lblNewLabel_2.setIcon(new ImageIcon(image));
+		lblNewLabel_2.setBounds(257, 60, 319, 226);
 		contentPane.add(lblNewLabel_2);
 	}
 }
