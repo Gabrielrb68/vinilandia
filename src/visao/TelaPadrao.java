@@ -78,7 +78,7 @@ public class TelaPadrao extends JFrame {
 			}
 		});
 		btnDeslogar.setBackground(new Color(255, 160, 122));
-		btnDeslogar.setBounds(269, 197, 144, 53);
+		btnDeslogar.setBounds(269, 167, 144, 35);
 		contentPane.add(btnDeslogar);
 
 		JButton btnDesejo = new JButton("Lista de desejos");
@@ -93,7 +93,7 @@ public class TelaPadrao extends JFrame {
 			}
 		});
 		btnDesejo.setBackground(new Color(255, 160, 122));
-		btnDesejo.setBounds(269, 57, 144, 53);
+		btnDesejo.setBounds(269, 57, 144, 44);
 		contentPane.add(btnDesejo);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -176,8 +176,23 @@ public class TelaPadrao extends JFrame {
 				telaDisco.setVisible(true);
 			}
 		});
-		btnAbrirDetalheDisco.setBounds(269, 126, 145, 53);
+		btnAbrirDetalheDisco.setBounds(269, 112, 145, 44);
 		contentPane.add(btnAbrirDetalheDisco);
+		
+		JButton btnConfiguracoes = new JButton("Configuracoes");
+		btnConfiguracoes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaConfiguracoes telaConfiguracoes = new TelaConfiguracoes(clienteSelecionado);
+				telaConfiguracoes.setLocationRelativeTo(null);
+				telaConfiguracoes.setVisible(true);
+			}
+		});
+		btnConfiguracoes.setForeground(Color.WHITE);
+		btnConfiguracoes.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		btnConfiguracoes.setBackground(new Color(255, 160, 122));
+		btnConfiguracoes.setBounds(269, 213, 144, 35);
+		contentPane.add(btnConfiguracoes);
 		
 		ClienteControl clienteControl = ClienteControl.getInstancia(); 
 		ArrayList<Cliente> listaPessoa = clienteControl.listaCliente(); 
