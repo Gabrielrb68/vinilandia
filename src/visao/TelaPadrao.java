@@ -39,6 +39,14 @@ public class TelaPadrao extends JFrame {
 	 * Construtor
 	 */ 
 	public TelaPadrao() {
+		
+		ClienteControl clienteControl = ClienteControl.getInstancia(); 
+		ArrayList<Cliente> listaPessoa = clienteControl.listaCliente(); 
+		for (Cliente cliente : listaPessoa) { 
+			if(clienteControl.getCPF()==cliente.getCpf()) { 
+				clienteSelecionado = cliente; 
+			} 
+		} 
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -87,7 +95,7 @@ public class TelaPadrao extends JFrame {
 		btnDesejo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TelaDesejos telaDesejos = new TelaDesejos();
+				TelaDesejos telaDesejos = new TelaDesejos(clienteSelecionado);
 				telaDesejos.setLocationRelativeTo(null);
 				telaDesejos.setVisible(true);
 			}
@@ -171,7 +179,7 @@ public class TelaPadrao extends JFrame {
 		btnAbrirDetalheDisco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TelaDisco telaDisco = new TelaDisco(discoSelecionado);
+				TelaDisco telaDisco = new TelaDisco(discoSelecionado, clienteSelecionado);
 				telaDisco.setLocationRelativeTo(null);
 				telaDisco.setVisible(true);
 			}
@@ -193,27 +201,5 @@ public class TelaPadrao extends JFrame {
 		btnConfiguracoes.setBackground(new Color(255, 160, 122));
 		btnConfiguracoes.setBounds(269, 213, 144, 35);
 		contentPane.add(btnConfiguracoes);
-		
-		ClienteControl clienteControl = ClienteControl.getInstancia(); 
-		ArrayList<Cliente> listaPessoa = clienteControl.listaCliente(); 
-		for (Cliente cliente : listaPessoa) { 
-			if(clienteControl.getCPF()==cliente.getCpf()) { 
-				clienteSelecionado = cliente; 
-			} 
-		} 
-		 
-		JButton btnConfig = new JButton("Configurações"); 
-		btnConfig.addActionListener(new ActionListener() { 
-			public void actionPerformed(ActionEvent e) { 
-				 
-				dispose(); 
-				TelaConfiguracoes telaConfiguracoes = new TelaConfiguracoes(clienteSelecionado); 
-				telaConfiguracoes.setLocationRelativeTo(null); 
-				telaConfiguracoes.setVisible(true); 
-			} 
-		}); 
-		btnConfig.setForeground(Color.WHITE); 
-		btnConfig.setFont(new Font("Arial Black", Font.PLAIN, 11)); 
-		btnConfig.setBackground(new Color(255, 160, 122)); 
 	}
 }

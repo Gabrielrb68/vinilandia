@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controle.ClienteControl;
+import modelo.Cliente;
 import modelo.Disco;
 
 public class TelaDisco extends JFrame {
@@ -22,7 +24,7 @@ public class TelaDisco extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaDisco(Disco discoSelecionado) {
+	public TelaDisco(Disco discoSelecionado, Cliente clienteSelecionado) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 328);
@@ -159,7 +161,9 @@ public class TelaDisco extends JFrame {
 		JButton btnAdicionarDesejo = new JButton("Lista de Desejo +");
 		btnAdicionarDesejo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteControl.setListaDesejo(discoSelecionado);
+				ArrayList<Disco> discosFavoritos = clienteSelecionado.getDiscosCliente();
+				discosFavoritos.add(discoSelecionado);
+				clienteSelecionado.setDiscosCliente(discosFavoritos);
 			}
 		});
 		btnAdicionarDesejo.setBackground(new Color(255, 160, 122));

@@ -35,7 +35,7 @@ public class TelaDesejos extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TelaDesejos() {
+	public TelaDesejos(Cliente clienteSelecionado) {
 		setBackground(new Color(128, 128, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -78,8 +78,7 @@ public class TelaDesejos extends JFrame {
 		scrollPane.setBounds(40, 77, 276, 158);
 		contentPane.add(scrollPane);
 		
-		ClienteControl cC = ClienteControl.getInstancia();
-        ArrayList<Disco> listaDiscos = cC.getListaDesejo();
+		ArrayList<Disco> discosClientes = clienteSelecionado.getDiscosCliente();
 		//ArrayList<Disco> listaDesejo = 
 		tableDesejo = new JTable(modelo);
 		tableDesejo.addMouseListener(new MouseAdapter() {
@@ -93,7 +92,7 @@ public class TelaDesejos extends JFrame {
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
 		tableDesejo.setModel(modelo);
 
-		for (Disco disco : listaDiscos) {
+		for (Disco disco : discosClientes) {
 			modelo.addRow(new Object[]{disco.getId(), disco.getNome()});
 		}
 	}

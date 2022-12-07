@@ -93,16 +93,5 @@ public class ClienteControl {
 
 		return null;
 	}
-	
-	public static ArrayList<Disco> getListaDesejo() {
-		Cliente c = new Cliente();
-				return c.getDiscosCliente();
-	}
-	public static void setListaDesejo(Disco discoSelecionado) {
-		Cliente c = new Cliente();
-		ArrayList<Disco> discosCliente = c.getDiscosCliente();
-			discosCliente.add(discoSelecionado);
-			c.setDiscosCliente(discosCliente);
-	}
 
 }
