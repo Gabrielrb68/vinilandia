@@ -82,6 +82,7 @@ public class TelaLogin extends JFrame {
 					telaManutencao.setVisible(true);
 				}else {
 					if(c!=null) {
+						clienteControl.setCPF(c.getCpf());
 						dispose();
 						TelaPadrao telaPadrao = new TelaPadrao();
 						telaPadrao.setLocationRelativeTo(null);

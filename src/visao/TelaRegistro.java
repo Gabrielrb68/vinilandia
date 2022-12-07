@@ -140,6 +140,17 @@ public class TelaRegistro extends JFrame {
 			cbMes.addItem(String.valueOf(i));
 		}
 		contentPane.add(cbMes);
+		
+		
+		JComboBox<String> cbPronome = new JComboBox<>();
+		cbPronome.setBounds(140, 149, 86, 22);
+		contentPane.add(cbPronome);
+		cbPronome.addItem("Ele/Dele");
+		cbPronome.addItem("Ela/Dela");
+		cbPronome.addItem("Elu/Delu");
+		cbPronome.addItem("Outro");
+		cbPronome.addItem("Não Informar");
+
 
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
@@ -213,14 +224,5 @@ public class TelaRegistro extends JFrame {
 		btnVoltar.setBackground(new Color(255, 160, 122));
 		btnVoltar.setBounds(304, 174, 103, 23);
 		contentPane.add(btnVoltar);
-		
-		JComboBox<String> cbPronome = new JComboBox<>();
-		cbPronome.setBounds(140, 149, 86, 22);
-		contentPane.add(cbPronome);
-		cbPronome.addItem("Ele/Dele");
-		cbPronome.addItem("Ela/Dela");
-		cbPronome.addItem("Elu/Delu");
-		cbPronome.addItem("Outro");
-		cbPronome.addItem("Não Informar");
 	}
 }

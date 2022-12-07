@@ -19,7 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controle.ClienteControl;
 import controle.DiscoControl;
+import modelo.Cliente;
 import modelo.Disco;
 import java.awt.Font;
 
@@ -31,6 +33,7 @@ public class TelaPadrao extends JFrame {
 	private DefaultTableModel modelo;
 	private Disco discoSelecionado;
 	private JTable table;
+	private Cliente clienteSelecionado; 
 
 	/**
 	 * Construtor
@@ -175,5 +178,27 @@ public class TelaPadrao extends JFrame {
 		});
 		btnAbrirDetalheDisco.setBounds(269, 126, 145, 53);
 		contentPane.add(btnAbrirDetalheDisco);
+		
+		ClienteControl clienteControl = ClienteControl.getInstancia(); 
+		ArrayList<Cliente> listaPessoa = clienteControl.listaCliente(); 
+		for (Cliente cliente : listaPessoa) { 
+			if(clienteControl.getCPF()==cliente.getCpf()) { 
+				clienteSelecionado = cliente; 
+			} 
+		} 
+		 
+		JButton btnConfig = new JButton("Configurações"); 
+		btnConfig.addActionListener(new ActionListener() { 
+			public void actionPerformed(ActionEvent e) { 
+				 
+				dispose(); 
+				TelaConfiguracoes telaConfiguracoes = new TelaConfiguracoes(clienteSelecionado); 
+				telaConfiguracoes.setLocationRelativeTo(null); 
+				telaConfiguracoes.setVisible(true); 
+			} 
+		}); 
+		btnConfig.setForeground(Color.WHITE); 
+		btnConfig.setFont(new Font("Arial Black", Font.PLAIN, 11)); 
+		btnConfig.setBackground(new Color(255, 160, 122)); 
 	}
 }

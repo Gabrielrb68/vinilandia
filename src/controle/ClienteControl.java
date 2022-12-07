@@ -13,6 +13,7 @@ public class ClienteControl {
 	private static ArrayList<Cliente> tabelaCliente;
 	private static ArrayList<Disco> discosCliente;
 	private static ClienteControl instancia;
+	private static Long pcpf;
 
 	/**
 	 * Padrao singleton viabiliza manipular um unico objeto na memoria
@@ -40,6 +41,15 @@ public class ClienteControl {
 	private ClienteControl() {
 
 	}
+	
+	public void setCPF(Long cpf) {
+		pcpf = cpf;
+	}
+	
+	public Long getCPF() {
+		return pcpf;
+	}
+	
 
 	public boolean insert(Cliente c) {
 		if (c != null) {
