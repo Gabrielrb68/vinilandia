@@ -17,17 +17,18 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controle.DiscoControl;
 import modelo.Cliente;
 import modelo.Disco;
 
 public class TelaDesejos extends JFrame {
-
 	private JPanel contentPane;
 	private JTable table;
 	private JTable tableDesejo;
 	private DefaultTableModel modelo;
 	private ArrayList<Disco> discosClientes;
-
+	private Long id;
+	private Disco discoSelecionado;
 	/**
 	 * Create the frame.
 	 */
@@ -48,13 +49,7 @@ public class TelaDesejos extends JFrame {
 		lblNewLabel.setBounds(40, -35, 371, 138);
 		contentPane.add(lblNewLabel);
 
-		JButton btnRemover = new JButton("Remover");
-		btnRemover.setBackground(new Color(255, 160, 122));
-		btnRemover.setForeground(new Color(255, 255, 255));
-		btnRemover.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnRemover.setBounds(335, 77, 89, 23);
-		contentPane.add(btnRemover);
-
+		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBackground(new Color(255, 160, 122));
 		btnVoltar.addActionListener(new ActionListener() {
@@ -77,13 +72,20 @@ public class TelaDesejos extends JFrame {
 		if (clienteSelecionado != null) {
 			discosClientes = clienteSelecionado.getDiscosCliente();
 		}
+		DiscoControl discoControl = DiscoControl.getInstancia();
+		ArrayList<Disco> listaDisco = discoControl.listaDiscos();
 		tableDesejo = new JTable(modelo);
 		tableDesejo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (discosClientes != null) {
 					int linha = tableDesejo.getSelectedRow();
-					Long id = (Long) tableDesejo.getValueAt(linha, 0);
+					id = (Long) tableDesejo.getValueAt(linha, 0);
+					for (Disco disco : listaDisco) {
+						if(disco.getId() == id) {
+							discoSelecionado = disco;
+						}
+					}
 				}
 			}
 		});
@@ -97,7 +99,24 @@ public class TelaDesejos extends JFrame {
 			}
 		} else {
 			modelo.addRow(new Object[] { "Nenhum disco" });
-		}
+		}	
+		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (Disco disco : discosClientes) {
+					if(discoSelecionado == disco ) {
+						discosClientes.remove(disco);
+						clienteSelecionado.setDiscosCliente(discosClientes);
+					}
+				}
+			}
+		});
+		btnRemover.setBackground(new Color(255, 160, 122));
+		btnRemover.setForeground(new Color(255, 255, 255));
+		btnRemover.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		btnRemover.setBounds(335, 77, 89, 23);
+		contentPane.add(btnRemover);
+
 	}
 
 }
