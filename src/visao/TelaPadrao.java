@@ -55,7 +55,7 @@ public class TelaPadrao extends JFrame {
 		JComboBox<String> cbFiltro = new JComboBox<>();
 		cbFiltro.setForeground(new Color(255, 255, 255));
 		cbFiltro.setBackground(new Color(255, 160, 122));
-		cbFiltro.setBounds(317, 10, 94, 22);
+		cbFiltro.setBounds(317, 10, 107, 22);
 		contentPane.add(cbFiltro);
 		String Filtro[] = {"Nenhum", "Soul", "Eletrônico", "Rock", "Pop Rock", "Indie", "Bizarre"};
 		for (int i = 0; i < Filtro.length; i++) {
@@ -75,7 +75,7 @@ public class TelaPadrao extends JFrame {
 			}
 		});
 		btnDeslogar.setBackground(new Color(255, 160, 122));
-		btnDeslogar.setBounds(269, 215, 144, 35);
+		btnDeslogar.setBounds(269, 197, 144, 53);
 		contentPane.add(btnDeslogar);
 
 		JButton btnDesejo = new JButton("Lista de desejos");
@@ -90,7 +90,7 @@ public class TelaPadrao extends JFrame {
 			}
 		});
 		btnDesejo.setBackground(new Color(255, 160, 122));
-		btnDesejo.setBounds(269, 57, 144, 41);
+		btnDesejo.setBounds(269, 57, 144, 53);
 		contentPane.add(btnDesejo);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -173,14 +173,7 @@ public class TelaPadrao extends JFrame {
 				telaDisco.setVisible(true);
 			}
 		});
-		btnAbrirDetalheDisco.setBounds(268, 109, 145, 41);
+		btnAbrirDetalheDisco.setBounds(269, 126, 145, 53);
 		contentPane.add(btnAbrirDetalheDisco);
-		
-		JButton btnConfig = new JButton("Configurações");
-		btnConfig.setForeground(Color.WHITE);
-		btnConfig.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnConfig.setBackground(new Color(255, 160, 122));
-		btnConfig.setBounds(269, 163, 142, 41);
-		contentPane.add(btnConfig);
 	}
 }
