@@ -182,7 +182,8 @@ public class TelaRegistro extends JFrame {
 					c.setCpf(cpf);
 					c.setCep(cep);
 					c.setDatNascimento(dataNasc);
-
+					c.setGenero(String.valueOf(cbPronome.getSelectedItem()));
+					
 					//registra o cliente
 					ClienteControl clienteControl = ClienteControl.getInstancia();
 					boolean valida = clienteControl.insert(c);

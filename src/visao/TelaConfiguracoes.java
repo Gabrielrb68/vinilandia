@@ -10,6 +10,8 @@ import controle.ClienteControl;
 import modelo.Cliente;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -148,7 +150,7 @@ public class TelaConfiguracoes extends JFrame {
 		txtEmail.setText(clienteSelecionado.getEmail());
 		txtCEP.setText(String.valueOf(clienteSelecionado.getCep()));
 		cbPronome.setSelectedItem(clienteSelecionado.getGenero());
-		
+
 		JButton btnSalvar = new JButton("SALVAR");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -161,6 +163,7 @@ public class TelaConfiguracoes extends JFrame {
 				lblEmail.setText(clienteSelecionado.getEmail());
 				clienteSelecionado.setGenero(String.valueOf(cbPronome.getSelectedItem()));
 				lblPronome.setText(clienteSelecionado.getGenero());
+				JOptionPane.showMessageDialog(btnSalvar,"Dados Salvos");
 			}
 		});
 		btnSalvar.setFont(new Font("Arial Black", Font.PLAIN, 12));
