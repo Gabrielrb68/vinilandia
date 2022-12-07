@@ -27,8 +27,9 @@ public class TelaDesejos extends JFrame {
 	private JTable tableDesejo;
 	private DefaultTableModel modelo;
 	private ArrayList<Disco> discosClientes;
-	private Long id;
 	private Disco discoSelecionado;
+	private ArrayList<Disco> listaDiscos;
+	private int linha;
 	/**
 	 * Create the frame.
 	 */
@@ -48,7 +49,6 @@ public class TelaDesejos extends JFrame {
 		lblNewLabel.setFont(new Font("Arial Black", Font.BOLD, 32));
 		lblNewLabel.setBounds(40, -35, 371, 138);
 		contentPane.add(lblNewLabel);
-
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBackground(new Color(255, 160, 122));
@@ -72,17 +72,17 @@ public class TelaDesejos extends JFrame {
 		if (clienteSelecionado != null) {
 			discosClientes = clienteSelecionado.getDiscosCliente();
 		}
-		DiscoControl discoControl = DiscoControl.getInstancia();
-		ArrayList<Disco> listaDisco = discoControl.listaDiscos();
 		tableDesejo = new JTable(modelo);
+		DiscoControl discoControl = DiscoControl.getInstancia();
+		listaDiscos = discoControl.listaDiscos();
 		tableDesejo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (discosClientes != null) {
-					int linha = tableDesejo.getSelectedRow();
-					id = (Long) tableDesejo.getValueAt(linha, 0);
-					for (Disco disco : listaDisco) {
-						if(disco.getId() == id) {
+					linha = tableDesejo.getSelectedRow();
+					Long id = (Long) tableDesejo.getValueAt(linha, 0);
+					for (Disco disco : listaDiscos) {
+						if (disco.getId() == id) {
 							discoSelecionado = disco;
 						}
 					}
@@ -103,11 +103,11 @@ public class TelaDesejos extends JFrame {
 		JButton btnRemover = new JButton("Remover");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				for (Disco disco : discosClientes) {
-					if(discoSelecionado == disco ) {
-						discosClientes.remove(disco);
-						clienteSelecionado.setDiscosCliente(discosClientes);
-					}
+				if(discosClientes!=null && discoSelecionado != null) {
+					discosClientes.remove(discoSelecionado);
+					clienteSelecionado.setDiscosCliente(discosClientes);
+					modelo.removeRow(linha);
+					tableDesejo.setModel(modelo);
 				}
 			}
 		});
