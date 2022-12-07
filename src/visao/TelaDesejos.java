@@ -2,28 +2,23 @@ package visao;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controle.ClienteControl;
-import controle.DiscoControl;
 import modelo.Cliente;
 import modelo.Disco;
-
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JTable;
 
 public class TelaDesejos extends JFrame {
 
@@ -31,6 +26,7 @@ public class TelaDesejos extends JFrame {
 	private JTable table;
 	private JTable tableDesejo;
 	private DefaultTableModel modelo;
+	private ArrayList<Disco> discosClientes;
 
 	/**
 	 * Create the frame.
@@ -73,28 +69,35 @@ public class TelaDesejos extends JFrame {
 		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnVoltar.setBounds(335, 114, 89, 23);
 		contentPane.add(btnVoltar);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(40, 77, 276, 158);
 		contentPane.add(scrollPane);
-		
-		ArrayList<Disco> discosClientes = clienteSelecionado.getDiscosCliente();
-		//ArrayList<Disco> listaDesejo = 
+
+		if (clienteSelecionado != null) {
+			discosClientes = clienteSelecionado.getDiscosCliente();
+		}
 		tableDesejo = new JTable(modelo);
 		tableDesejo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int linha = tableDesejo.getSelectedRow();
-				Long id = (Long) tableDesejo.getValueAt(linha, 0);
+				if (discosClientes != null) {
+					int linha = tableDesejo.getSelectedRow();
+					Long id = (Long) tableDesejo.getValueAt(linha, 0);
+				}
 			}
 		});
 		scrollPane.setViewportView(tableDesejo);
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
 		tableDesejo.setModel(modelo);
 
-		for (Disco disco : discosClientes) {
-			modelo.addRow(new Object[]{disco.getId(), disco.getNome()});
+		if (discosClientes != null) {
+			for (Disco disco : discosClientes) {
+				modelo.addRow(new Object[] { disco.getId(), disco.getNome() });
+			}
+		} else {
+			modelo.addRow(new Object[] { "Nenhum disco" });
 		}
 	}
-	
+
 }

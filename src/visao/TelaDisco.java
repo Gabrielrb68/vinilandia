@@ -99,7 +99,7 @@ public class TelaDisco extends JFrame {
 		JButton btnLike = new JButton("Like");
 		btnLike.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Float avaliacao = discoSelecionado.getAvaliacao()+1;
+				Float avaliacao = discoSelecionado.getAvaliacao() + 1;
 				discoSelecionado.setAvaliacao(avaliacao);
 				lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
 			}
@@ -108,16 +108,14 @@ public class TelaDisco extends JFrame {
 		btnLike.setBackground(new Color(154, 205, 50));
 		btnLike.setBounds(10, 221, 102, 23);
 		contentPane.add(btnLike);
-		
 
 		JButton btnDislike = new JButton("Dislike");
 		btnDislike.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Float avaliacao = discoSelecionado.getAvaliacao()-1;
+				Float avaliacao = discoSelecionado.getAvaliacao() - 1;
 				discoSelecionado.setAvaliacao(avaliacao);
 				lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
-			
-			
+
 			}
 		});
 		btnDislike.setForeground(new Color(255, 255, 255));
@@ -157,11 +155,14 @@ public class TelaDisco extends JFrame {
 		});
 		btnVoltar.setBounds(281, 255, 143, 23);
 		contentPane.add(btnVoltar);
-		
+
 		JButton btnAdicionarDesejo = new JButton("Lista de Desejo +");
 		btnAdicionarDesejo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<Disco> discosFavoritos = clienteSelecionado.getDiscosCliente();
+				if (discosFavoritos == null) {
+					discosFavoritos = new ArrayList<>();
+				}
 				discosFavoritos.add(discoSelecionado);
 				clienteSelecionado.setDiscosCliente(discosFavoritos);
 			}

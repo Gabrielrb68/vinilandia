@@ -28,9 +28,13 @@ public class ClienteControl {
 		if (instancia == null) {
 			instancia = new ClienteControl();
 			tabelaCliente = new ArrayList<>();
-			
+
 			// pre cadastro
-			tabelaCliente.add(new Cliente("admin", "admin"));
+			Cliente admin = new Cliente();
+			admin.setCpf(46546546l);
+			admin.setEmail("admin");
+			admin.setSenha("admin");
+			tabelaCliente.add(admin);
 		}
 		return instancia;
 	}
@@ -41,15 +45,14 @@ public class ClienteControl {
 	private ClienteControl() {
 
 	}
-	
+
 	public void setCPF(Long cpf) {
 		pcpf = cpf;
 	}
-	
+
 	public Long getCPF() {
 		return pcpf;
 	}
-	
 
 	public boolean insert(Cliente c) {
 		if (c != null) {

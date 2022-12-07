@@ -12,6 +12,7 @@ import java.util.Iterator;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -33,20 +34,20 @@ public class TelaPadrao extends JFrame {
 	private DefaultTableModel modelo;
 	private Disco discoSelecionado;
 	private JTable table;
-	private Cliente clienteSelecionado; 
+	private Cliente clienteSelecionado;
 
 	/**
 	 * Construtor
-	 */ 
+	 */
 	public TelaPadrao() {
-		
-		ClienteControl clienteControl = ClienteControl.getInstancia(); 
-		ArrayList<Cliente> listaPessoa = clienteControl.listaCliente(); 
-		for (Cliente cliente : listaPessoa) { 
-			if(clienteControl.getCPF()==cliente.getCpf()) { 
-				clienteSelecionado = cliente; 
-			} 
-		} 
+
+		ClienteControl clienteControl = ClienteControl.getInstancia();
+		ArrayList<Cliente> listaPessoa = clienteControl.listaCliente();
+		for (Cliente cliente : listaPessoa) {
+			if (clienteControl.getCPF() == cliente.getCpf()) {
+				clienteSelecionado = cliente;
+			}
+		}
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -68,11 +69,10 @@ public class TelaPadrao extends JFrame {
 		cbFiltro.setBackground(new Color(255, 160, 122));
 		cbFiltro.setBounds(317, 10, 107, 22);
 		contentPane.add(cbFiltro);
-		String Filtro[] = {"Nenhum", "Soul", "Eletrônico", "Rock", "Pop Rock", "Indie", "Bizarre"};
+		String Filtro[] = { "Nenhum", "Soul", "Eletrônico", "Rock", "Pop Rock", "Indie", "Bizarre" };
 		for (int i = 0; i < Filtro.length; i++) {
 			cbFiltro.addItem(Filtro[i]);
 		}
-		
 
 		JButton btnDeslogar = new JButton("Deslogar");
 		btnDeslogar.setFont(new Font("Arial Black", Font.PLAIN, 11));
@@ -94,10 +94,15 @@ public class TelaPadrao extends JFrame {
 		btnDesejo.setForeground(new Color(255, 255, 255));
 		btnDesejo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				TelaDesejos telaDesejos = new TelaDesejos(clienteSelecionado);
-				telaDesejos.setLocationRelativeTo(null);
-				telaDesejos.setVisible(true);
+
+				if (clienteSelecionado != null) {
+					dispose();
+					TelaDesejos telaDesejos = new TelaDesejos(clienteSelecionado);
+					telaDesejos.setLocationRelativeTo(null);
+					telaDesejos.setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "");
+				}
 			}
 		});
 		btnDesejo.setBackground(new Color(255, 160, 122));
@@ -144,22 +149,24 @@ public class TelaPadrao extends JFrame {
 		btnPesquisar.setBackground(new Color(255, 160, 122));
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(txtPesquisa.getText().isBlank() && cbFiltro.getSelectedItem().equals("Nenhum")) {
+				if (txtPesquisa.getText().isBlank() && cbFiltro.getSelectedItem().equals("Nenhum")) {
 					tableDiscos.setModel(modelo);
-				}else {
+				} else {
 					pesquisa.setRowCount(0);
 					for (Disco disco : listaDiscos) {
-						if(cbFiltro.getSelectedItem().equals("Nenhum") && (disco.getNome().equalsIgnoreCase(txtPesquisa.getText()))) {
-							if(disco.getNome().equalsIgnoreCase(txtPesquisa.getText())) {
+						if (cbFiltro.getSelectedItem().equals("Nenhum")
+								&& (disco.getNome().equalsIgnoreCase(txtPesquisa.getText()))) {
+							if (disco.getNome().equalsIgnoreCase(txtPesquisa.getText())) {
 								pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
 							}
-						}else{
-							if(txtPesquisa.getText().isBlank()) {
-								if(disco.getGenero().equals(String.valueOf(cbFiltro.getSelectedItem()))) {
+						} else {
+							if (txtPesquisa.getText().isBlank()) {
+								if (disco.getGenero().equals(String.valueOf(cbFiltro.getSelectedItem()))) {
 									pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
 								}
-							}else {
-								if((disco.getGenero().equals(String.valueOf(cbFiltro.getSelectedItem()))) && (disco.getNome().equalsIgnoreCase(txtPesquisa.getText()))) {
+							} else {
+								if ((disco.getGenero().equals(String.valueOf(cbFiltro.getSelectedItem())))
+										&& (disco.getNome().equalsIgnoreCase(txtPesquisa.getText()))) {
 									pesquisa.addRow(new Object[] { disco.getId(), disco.getNome() });
 								}
 							}
@@ -171,7 +178,7 @@ public class TelaPadrao extends JFrame {
 		});
 		btnPesquisar.setBounds(213, 10, 94, 23);
 		contentPane.add(btnPesquisar);
-		
+
 		JButton btnAbrirDetalheDisco = new JButton("Selecionar Disco");
 		btnAbrirDetalheDisco.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnAbrirDetalheDisco.setForeground(new Color(255, 255, 255));
@@ -186,7 +193,7 @@ public class TelaPadrao extends JFrame {
 		});
 		btnAbrirDetalheDisco.setBounds(269, 112, 145, 44);
 		contentPane.add(btnAbrirDetalheDisco);
-		
+
 		JButton btnConfiguracoes = new JButton("Configuracoes");
 		btnConfiguracoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
