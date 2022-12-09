@@ -33,8 +33,8 @@ public class TelaPadrao extends JFrame {
 	private JTable tableDiscos;
 	private DefaultTableModel modelo;
 	private Disco discoSelecionado;
-	private JTable table;
 	private Cliente clienteSelecionado;
+	private Boolean voltar = false;
 
 	/**
 	 * Construtor
@@ -135,7 +135,13 @@ public class TelaPadrao extends JFrame {
 		scrollPane.setViewportView(tableDiscos);
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
 		DefaultTableModel pesquisa = new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" });
-		tableDiscos.setModel(modelo);
+		tableDiscos.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"ID", "Nome"
+			}
+		));
 
 		// carregando os dados no jtable
 		for (Disco disco : listaDiscos) {
@@ -186,7 +192,7 @@ public class TelaPadrao extends JFrame {
 		btnAbrirDetalheDisco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TelaDisco telaDisco = new TelaDisco(discoSelecionado, clienteSelecionado);
+				TelaDisco telaDisco = new TelaDisco(discoSelecionado, clienteSelecionado, voltar);
 				telaDisco.setLocationRelativeTo(null);
 				telaDisco.setVisible(true);
 			}

@@ -57,11 +57,5 @@ public class TelaManutencao extends JFrame {
 		lblNewLabel_1.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		lblNewLabel_1.setBounds(163, 236, 364, 14);
 		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("");
-		Image image = new ImageIcon(this.getClass().getResource("/coffee4.png")).getImage();
-		lblNewLabel_2.setIcon(new ImageIcon(image));
-		lblNewLabel_2.setBounds(257, 60, 319, 226);
-		contentPane.add(lblNewLabel_2);
 	}
 }

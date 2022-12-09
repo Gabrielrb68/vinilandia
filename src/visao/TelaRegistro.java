@@ -28,8 +28,6 @@ public class TelaRegistro extends JFrame {
 	private JTextField txtCPF;
 	private JTextField txtCEP;
 	private JTextField txtAno;
-	private ClienteControl usuarioControl;
-
 	/**
 	 * Create the frame.
 	 */

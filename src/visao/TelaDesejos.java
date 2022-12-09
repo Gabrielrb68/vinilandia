@@ -23,13 +23,13 @@ import modelo.Disco;
 
 public class TelaDesejos extends JFrame {
 	private JPanel contentPane;
-	private JTable table;
 	private JTable tableDesejo;
 	private DefaultTableModel modelo;
 	private ArrayList<Disco> discosClientes;
 	private Disco discoSelecionado;
 	private ArrayList<Disco> listaDiscos;
 	private int linha;
+	private Boolean voltar = true;
 	/**
 	 * Create the frame.
 	 */
@@ -62,7 +62,7 @@ public class TelaDesejos extends JFrame {
 		});
 		btnVoltar.setForeground(new Color(255, 255, 255));
 		btnVoltar.setFont(new Font("Arial Black", Font.PLAIN, 11));
-		btnVoltar.setBounds(335, 114, 89, 23);
+		btnVoltar.setBounds(335, 135, 89, 23);
 		contentPane.add(btnVoltar);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -116,7 +116,21 @@ public class TelaDesejos extends JFrame {
 		btnRemover.setFont(new Font("Arial Black", Font.PLAIN, 11));
 		btnRemover.setBounds(335, 77, 89, 23);
 		contentPane.add(btnRemover);
+		
+		JButton btnSelecionar = new JButton("Escolher");
+		btnSelecionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaDisco telaDisco = new TelaDisco(discoSelecionado, clienteSelecionado, voltar);
+				telaDisco.setLocationRelativeTo(null);
+				telaDisco.setVisible(true);
+			}
+		});
+		btnSelecionar.setForeground(Color.WHITE);
+		btnSelecionar.setFont(new Font("Arial Black", Font.PLAIN, 11));
+		btnSelecionar.setBackground(new Color(255, 160, 122));
+		btnSelecionar.setBounds(335, 106, 89, 23);
+		contentPane.add(btnSelecionar);
 
 	}
-
 }

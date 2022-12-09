@@ -14,6 +14,8 @@ public class Cliente {
 	private String genero;
 	private Long cep;
 	private ArrayList<Disco> discosFavoritos;
+	private ArrayList<Disco> discosLike;
+	private ArrayList<Disco> discosDislike;
 
 	public Cliente(String email, String senha) {
 		this.email = email;
@@ -23,6 +25,22 @@ public class Cliente {
 	public Cliente() {
 	}
 
+	public ArrayList<Disco> getDiscosDislike() {
+		return discosDislike;
+	}
+
+	public void setDiscosDislike(ArrayList<Disco> discosDislike) {
+		this.discosDislike = discosDislike;
+	}
+	
+	public ArrayList<Disco> getDiscosLike() {
+		return discosLike;
+	}
+
+	public void setDiscosLike(ArrayList<Disco> discosLike) {
+		this.discosLike = discosLike;
+	}
+	
 	public ArrayList<Disco> getDiscosCliente() {
 		return discosFavoritos;
 	}

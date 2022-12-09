@@ -17,16 +17,17 @@ import javax.swing.border.EmptyBorder;
 import controle.ClienteControl;
 import modelo.Cliente;
 import modelo.Disco;
+import javax.swing.JCheckBox;
 
 public class TelaDisco extends JFrame {
 
 	private JPanel contentPane;
+	private Boolean jaPossui=false;
 
 	/**
 	 * Create the frame.
 	 */
-	public TelaDisco(Disco discoSelecionado, Cliente clienteSelecionado) {
-
+	public TelaDisco(Disco discoSelecionado, Cliente clienteSelecionado, Boolean voltar) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 328);
 		contentPane = new JPanel();
@@ -97,33 +98,6 @@ public class TelaDisco extends JFrame {
 
 		}
 
-		JButton btnLike = new JButton("Like");
-		btnLike.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Float avaliacao = discoSelecionado.getAvaliacao() + 1;
-				discoSelecionado.setAvaliacao(avaliacao);
-				lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
-			}
-		});
-		btnLike.setForeground(new Color(255, 255, 255));
-		btnLike.setBackground(new Color(154, 205, 50));
-		btnLike.setBounds(10, 221, 102, 23);
-		contentPane.add(btnLike);
-
-		JButton btnDislike = new JButton("Dislike");
-		btnDislike.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Float avaliacao = discoSelecionado.getAvaliacao() - 1;
-				discoSelecionado.setAvaliacao(avaliacao);
-				lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
-
-			}
-		});
-		btnDislike.setForeground(new Color(255, 255, 255));
-		btnDislike.setBackground(new Color(255, 69, 0));
-		btnDislike.setBounds(10, 255, 102, 23);
-		contentPane.add(btnDislike);
-
 		JLabel lblNewLabel_5 = new JLabel("insira foto aqui");
 		lblNewLabel_5.setBounds(51, 63, 85, 14);
 		contentPane.add(lblNewLabel_5);
@@ -148,10 +122,17 @@ public class TelaDisco extends JFrame {
 		btnVoltar.setBackground(new Color(255, 160, 122));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				TelaPadrao telaPadrao = new TelaPadrao();
-				telaPadrao.setLocationRelativeTo(null);
-				telaPadrao.setVisible(true);
+				if(voltar) {
+					dispose();
+					TelaDesejos telaDesejos = new TelaDesejos(clienteSelecionado);
+					telaDesejos.setLocationRelativeTo(null);
+					telaDesejos.setVisible(true);
+				}else {
+					dispose();
+					TelaPadrao telaPadrao = new TelaPadrao();
+					telaPadrao.setLocationRelativeTo(null);
+					telaPadrao.setVisible(true);
+				}
 			}
 		});
 		btnVoltar.setBounds(281, 255, 143, 23);
@@ -163,16 +144,107 @@ public class TelaDisco extends JFrame {
 				ArrayList<Disco> discosFavoritos = clienteSelecionado.getDiscosCliente();
 				if (discosFavoritos == null) {
 					discosFavoritos = new ArrayList<>();
+					discosFavoritos.add(discoSelecionado);
+					clienteSelecionado.setDiscosCliente(discosFavoritos);
+					JOptionPane.showMessageDialog(btnAdicionarDesejo, "Adcionado a lista de desejos");
+				}else {
+					for (Disco disco : discosFavoritos) {
+						if(disco == discoSelecionado) {
+							jaPossui=true;
+						}
+					}
+					if(jaPossui) {
+						JOptionPane.showMessageDialog(btnAdicionarDesejo, "Disco já adcionado");
+					}else {
+						discosFavoritos.add(discoSelecionado);
+						clienteSelecionado.setDiscosCliente(discosFavoritos);
+						JOptionPane.showMessageDialog(btnAdicionarDesejo, "Adcionado a lista de desejos");
+					}
 				}
-				discosFavoritos.add(discoSelecionado);
-				clienteSelecionado.setDiscosCliente(discosFavoritos);
-				JOptionPane.showMessageDialog(btnAdicionarDesejo, "Adcionado a lista de desejos");
 			}
 		});
 		btnAdicionarDesejo.setBackground(new Color(255, 160, 122));
 		btnAdicionarDesejo.setForeground(new Color(255, 255, 255));
 		btnAdicionarDesejo.setBounds(281, 186, 143, 23);
 		contentPane.add(btnAdicionarDesejo);
-
+		
+		JCheckBox chckbxLike = new JCheckBox("Like");
+		chckbxLike.setBackground(new Color(34, 139, 34));
+		chckbxLike.setBounds(10, 221, 97, 23);
+		contentPane.add(chckbxLike);
+		
+		JCheckBox chckbxDislike = new JCheckBox("Dislike");
+		chckbxDislike.setBackground(new Color(165, 42, 42));
+		chckbxDislike.setBounds(10, 253, 97, 23);
+		contentPane.add(chckbxDislike);
+		
+		if(clienteSelecionado.getDiscosLike()!=null) {
+			for (Disco disco : clienteSelecionado.getDiscosLike()) {
+				if(disco == discoSelecionado) {
+					chckbxLike.setSelected(true);
+					chckbxDislike.setEnabled(false);
+				}
+			}
+		}
+		
+		if(clienteSelecionado.getDiscosDislike()!=null) {
+				for (Disco disco : clienteSelecionado.getDiscosDislike()) {
+					if(disco == discoSelecionado) {
+						chckbxDislike.setSelected(true);
+						chckbxLike.setEnabled(false);
+					}
+				}
+		}
+		
+		chckbxLike.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckbxLike.isSelected()) {
+					ArrayList<Disco> discosLike = clienteSelecionado.getDiscosLike();
+					if (discosLike == null) {
+						discosLike = new ArrayList<>();
+					}
+					Float avaliacao = discoSelecionado.getAvaliacao() + 1;
+					discoSelecionado.setAvaliacao(avaliacao);
+					lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
+					chckbxDislike.setEnabled(false);
+					discosLike.add(discoSelecionado);
+					clienteSelecionado.setDiscosLike(discosLike);
+					
+				}else {
+					ArrayList<Disco> discosLike = clienteSelecionado.getDiscosLike();
+					Float avaliacao = discoSelecionado.getAvaliacao() - 1;
+					discoSelecionado.setAvaliacao(avaliacao);
+					lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
+					chckbxDislike.setEnabled(true);
+					discosLike.remove(discoSelecionado);
+					clienteSelecionado.setDiscosLike(discosLike);
+				}
+			}
+		});
+		
+		chckbxDislike.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(chckbxDislike.isSelected()) {
+					ArrayList<Disco> discosDislike = clienteSelecionado.getDiscosDislike();
+					if (discosDislike == null) {
+						discosDislike = new ArrayList<>();
+					}
+					Float avaliacao = discoSelecionado.getAvaliacao() - 1;
+					discoSelecionado.setAvaliacao(avaliacao);
+					lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
+					chckbxLike.setEnabled(false);
+					discosDislike.add(discoSelecionado);
+					clienteSelecionado.setDiscosDislike(discosDislike);
+				}else {
+					ArrayList<Disco> discosDislike = clienteSelecionado.getDiscosDislike();
+					Float avaliacao = discoSelecionado.getAvaliacao() + 1;
+					discoSelecionado.setAvaliacao(avaliacao);
+					lblAvaliacao.setText(String.valueOf(discoSelecionado.getAvaliacao()));
+					chckbxLike.setEnabled(true);
+					discosDislike.remove(discoSelecionado);
+					clienteSelecionado.setDiscosLike(discosDislike);
+				}
+			}
+		});
 	}
 }
